@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
 
-export const ToDo = () => {
+export const ToDo = ({task}) => {
   return (
     <div className="Todo">
-      <p>Write More Code</p>
+      <p>{task}</p>
       <div className="Todo">
         <FontAwesomeIcon icon={faPenToSquare} className="edit"/>
         <FontAwesomeIcon icon={faTrash} className="delete"/>
@@ -15,3 +16,6 @@ export const ToDo = () => {
   )
 };
 
+ToDo.propTypes = {
+  task: PropTypes.string.isRequired
+}
