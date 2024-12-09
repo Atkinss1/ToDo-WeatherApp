@@ -17,6 +17,15 @@ export const ToDoWrapper = () => {
     console.log(todos);
   };
 
+  const editTodo = (id) => {
+    setTodos(todos.map(todo => {
+      if (todo.id === id) {
+        todo.todo = prompt('Edit Task', todo.todo);
+      }
+      return todo;
+    }));
+  }
+
   return (
 		<div className='TodoWrapper'>
 			<h1>ToDo List</h1>
@@ -26,6 +35,7 @@ export const ToDoWrapper = () => {
           key={index}
 					task={todo}
 					deleteTodo={deleteTodo}
+          editTodo={editTodo}
 				/>
 			))}
 		</div>
