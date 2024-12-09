@@ -12,13 +12,22 @@ export const ToDoWrapper = () => {
     setTodos([...todos, { id: uuidv4(), todo: todo}]);
   };
 
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+    console.log(todos);
+  };
+
   return (
-    <div className="TodoWrapper">
-      <h1>ToDo List</h1>
-      <ToDoForm addTodo={addTodo}/>
-      {todos.map((todo, index) => (
-        <ToDo task={todo.todo} key={index}/>
-      ))}
-    </div>
-  )
+		<div className='TodoWrapper'>
+			<h1>ToDo List</h1>
+			<ToDoForm addTodo={addTodo} />
+			{todos.map((todo, index) => (
+				<ToDo
+          key={index}
+					task={todo}
+					deleteTodo={deleteTodo}
+				/>
+			))}
+		</div>
+	);
 }

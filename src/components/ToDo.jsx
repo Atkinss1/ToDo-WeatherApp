@@ -4,18 +4,27 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 
 
-export const ToDo = ({task}) => {
-  return (
-    <div className="Todo">
-      <p>{task}</p>
-      <div className="Todo">
-        <FontAwesomeIcon icon={faPenToSquare} className="edit"/>
-        <FontAwesomeIcon icon={faTrash} className="delete"/>
-      </div>
-    </div>
-  )
+export const ToDo = ({ task, deleteTodo }) => {
+	
+	return (
+		<div className='Todo'>
+			<p>{task.todo}</p>
+			<div className='Todo'>
+				<FontAwesomeIcon
+					icon={faPenToSquare}
+					className='edit-icon'
+				/>
+				<FontAwesomeIcon
+					icon={faTrash}
+					className='delete-icon'
+					onClick={() => deleteTodo(task.id)}
+				/>
+			</div>
+		</div>
+	);
 };
 
 ToDo.propTypes = {
-  task: PropTypes.string.isRequired
+  task: PropTypes.string.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 }
