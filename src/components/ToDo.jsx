@@ -4,11 +4,11 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 
 
-export const ToDo = ({ task, deleteTodo, editTodo }) => {
+export const ToDo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
 	
 	return (
-		<div className='Todo'>
-			<p>{task.todo}</p>
+		<div className={`Todo`}>
+			<p onClick={() => toggleComplete(task.id)} className={`${task.completed ? 'completed' : 'task'}`}>{task.todo}</p>
 			<div className='Todo'>
 				<FontAwesomeIcon
 					icon={faPenToSquare}
@@ -26,7 +26,8 @@ export const ToDo = ({ task, deleteTodo, editTodo }) => {
 };
 
 ToDo.propTypes = {
-  task: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  editTodo: PropTypes.func.isRequired
+  editTodo: PropTypes.func.isRequired,
+  toggleComplete: PropTypes.func.isRequired
 }
