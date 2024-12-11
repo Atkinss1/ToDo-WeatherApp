@@ -1,13 +1,16 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useContext, useState } from 'react';
+import { TodosContext } from '../context/TodosContext';
 
-export const EditToDoForm = ({ editTodo, task }) => {
+export const EditToDoForm = ({ task }) => {
+
+  const { editTask } = useContext(TodosContext);
 	
   const [value, setValue] = useState('');
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!value) return;
-		editTodo(task.id, value);
+		editTask(task.id, value);
 	};
 	return (
 		<form
@@ -32,6 +35,5 @@ export const EditToDoForm = ({ editTodo, task }) => {
 };
 
 EditToDoForm.propTypes = {
-	editTodo: PropTypes.func.isRequired,
   task: PropTypes.object.isRequired
 };

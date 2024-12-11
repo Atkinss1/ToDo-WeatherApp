@@ -1,8 +1,9 @@
-import { useState } from "react"
-import PropTypes from 'prop-types'; 
+import { useContext, useState } from "react";
+import { TodosContext } from "../context/TodosContext";
 
-export const ToDoForm = ({ addTodo }) => {
+export const ToDoForm = () => {
 
+  const { addTodo } = useContext(TodosContext);
   const [value, setValue] = useState('');
 
   const handleSubmit = (e) => {
@@ -24,7 +25,3 @@ export const ToDoForm = ({ addTodo }) => {
     </form>
   )
 }
-
-ToDoForm.propTypes = {
-  addTodo: PropTypes.func.isRequired
-};
