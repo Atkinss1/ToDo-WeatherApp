@@ -13,7 +13,7 @@ export const ToDo = ({ task }) => {
 				onClick={() => toggleComplete(task.id)}
 				className={`${task.completed ? 'completed' : 'task'}`}
 			>
-				{task.todo}
+				{task.title}
 			</p>
 			<div className='Todo'>
 				<FontAwesomeIcon

@@ -1,11 +1,30 @@
 import { TodosContext } from "./TodosContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from 'prop-types';
 
 export const TodosContextProvider = ({ children }) => {
 
   const [todos, setTodos] = useState([]);
+  
+  const getTasks = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/getTasks');
+  
+      if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+      }
+      const data = await response.json(); 
+      setTodos(data);
+    } catch (error) {
+      console.error('Failed to fetch tasks:', error);
+    }
+  };
+
+  useEffect(() => {
+    getTasks();
+  }, [])
 
 	const addTodo = (todo) => {
 		setTodos([
