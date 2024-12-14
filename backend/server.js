@@ -26,10 +26,12 @@ const client = new Client({
 // Import routes
 import { fetchTasksRoute } from './routes/fetchTasksRoute.js';
 import { addTaskRoute } from './routes/addTaskRoute.js';
+import { deleteTaskRoute } from './routes/deleteTaskRoute.js';
 
 // Use routes
 app.use('/getTasks', fetchTasksRoute(client));
 app.use('/addTask', addTaskRoute(client));
+app.use('/deleteTask', deleteTaskRoute(client));
 
 // Connect to the database
 client.connect((err) => {

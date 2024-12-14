@@ -28,8 +28,6 @@ export const TodosContextProvider = ({ children }) => {
 
 	const addTodo = async (todo) => {
     try {
-      console.log('todo:', todo);
-      console.log('stringified todo:', JSON.stringify({ task: todo }));
       setTodos([
 				...todos,
 				{ id: uuidv4(), title: todo, completed: false, isEditing: false },
@@ -48,16 +46,36 @@ export const TodosContextProvider = ({ children }) => {
         throw new Error(message);
       }
 
-      const data = await response.json();
-      console.log('data:', data);
     } catch (error) {
       throw new Error('Failed to add todo:', error);
     }
 		
 	};
 
-	const deleteTodo = (id) => {
-		setTodos(todos.filter((todo) => todo.id !== id));
+	const deleteTodo = async (id) => {
+    try{
+      setTodos(todos.filter((todo) => todo.id !== id));
+
+      const response = await fetch('http://localhost:3000/deleteTask', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+      });
+
+      if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+    } catch (error) {
+      throw new Error('Failed to delete todo:', error);
+    }
+		
 	};
 
 	const editTodo = (id) => {
