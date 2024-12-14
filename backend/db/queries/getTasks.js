@@ -8,8 +8,7 @@ export const getTasks = (db) => {
       if (err) {
         reject(err);
       } else {
-        console.log('results', results.rows);
-        resolve(results);
+        resolve(results.rows);
       }
     })
   });

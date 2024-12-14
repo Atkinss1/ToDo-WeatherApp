@@ -9,6 +9,9 @@ const options = {
 	origin: 'http://localhost:5173',
 };
 
+// Enable express to parse JSON data
+app.use(express.json());
+
 // Enable CORS
 app.use(cors(options));
 
@@ -21,10 +24,12 @@ const client = new Client({
 });
 
 // Import routes
-import { fetchTasks } from './routes/fetchTasks.js';
+import { fetchTasksRoute } from './routes/fetchTasksRoute.js';
+import { addTaskRoute } from './routes/addTaskRoute.js';
 
 // Use routes
-app.use('/getTasks', fetchTasks(client));
+app.use('/getTasks', fetchTasksRoute(client));
+app.use('/addTask', addTaskRoute(client));
 
 // Connect to the database
 client.connect((err) => {

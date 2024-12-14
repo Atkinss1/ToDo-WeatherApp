@@ -26,16 +26,38 @@ export const TodosContextProvider = ({ children }) => {
     getTasks();
   }, [])
 
-	const addTodo = (todo) => {
-		setTodos([
-			...todos,
-			{ id: uuidv4(), todo: todo, completed: false, isEditing: false },
-		]);
+	const addTodo = async (todo) => {
+    try {
+      console.log('todo:', todo);
+      console.log('stringified todo:', JSON.stringify({ task: todo }));
+      setTodos([
+				...todos,
+				{ id: uuidv4(), title: todo, completed: false, isEditing: false },
+			]);
+
+      const response = await fetch('http://localhost:3000/addTask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ task: todo })
+      });
+
+      if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+      }
+
+      const data = await response.json();
+      console.log('data:', data);
+    } catch (error) {
+      throw new Error('Failed to add todo:', error);
+    }
+		
 	};
 
 	const deleteTodo = (id) => {
 		setTodos(todos.filter((todo) => todo.id !== id));
-		console.log(todos);
 	};
 
 	const editTodo = (id) => {
