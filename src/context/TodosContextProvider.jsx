@@ -57,6 +57,9 @@ export const TodosContextProvider = ({ children }) => {
 				const message = `An error has occured: ${response.status}`;
 				throw new Error(message);
 			}
+
+      const data = await response.json();
+      console.log(data);
 		} catch (error) {
 			throw new Error('Failed to add todo:', error);
 		}
@@ -111,12 +114,34 @@ export const TodosContextProvider = ({ children }) => {
    * @param {string} newTask - new title of the todo item 
    * @returns {void} - returns nothing
    */
-	const editTask = (id, newTask) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, todo: newTask, isEditing: false } : todo
-			)
-		);
+	const editTask = async (id, newTask) => {
+    try{
+      setTodos(
+				todos.map((todo) =>
+					todo.id === id ? { ...todo, title: newTask, isEditing: false } : todo
+				)
+			);
+
+      const response = await fetch('http://localhost:3000/editTask', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id, newTask })
+        }
+      );
+
+      if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      throw new Error('Failed to edit todo:', error);
+    }
+		
 	};
 
   /**
