@@ -10,11 +10,13 @@ import { addTask } from '../db/queries/addTask.js';
 export const addTaskRoute = (client) => {
   const router = express.Router();
   
-  router.post('/', (req, res) => {
+  router.post('/', async (req, res) => {
     try{
       const { task } = req.body;
-      addTask(client, task);
-      res.status(201).json({ message: 'Task added successfully' });
+      const response = await addTask(client, task);
+      if (response) {
+        res.status(201).json(response);
+      }
     } catch(error) {
       res.status(500).json({ error: `Failed to add task: ${error}`});
     }
