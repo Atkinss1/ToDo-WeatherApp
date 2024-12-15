@@ -3,10 +3,20 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from 'prop-types';
 
+
+/**
+ * ToDosContextProvider
+ * @param {Node} children - children components 
+ * @returns {JSX.Provider} - returns the children components wrapped in the TodosContext.Provider
+ */
 export const TodosContextProvider = ({ children }) => {
 	const [todos, setTodos] = useState([]);
 
-	// Fetches the tasks from the server
+	/**
+   * Fetches the tasks from the database and sets the todos state to the fetched data 
+   * If an error occurs, it logs the error to the console
+   * @returns {Promise<object[]>} A promise that resloves to an array of task objects
+   */
 	const getTasks = async () => {
 		try {
 			const response = await fetch('http://localhost:3000/getTasks');
@@ -22,7 +32,12 @@ export const TodosContextProvider = ({ children }) => {
 		}
 	};
 
-  // Adds a new todo item to the list and the database
+  /**
+   * Adds a new todo item to the useState and the database
+   * @param {string} todo - title of the new todo item
+   * @returns {Promise<void>} A promise that resolves to undefined
+   * @throws {Error} - If an error occurs while adding the task 
+   */
 	const addTodo = async (todo) => {
 		try {
 			setTodos([
@@ -47,7 +62,12 @@ export const TodosContextProvider = ({ children }) => {
 		}
 	};
 
-  // Deletes a todo item from the list and the database
+  /**
+   * Deletes a todo item from the useState and the database
+   * @param {number} id - id of the todo item to be deleted
+   * @returns {Promise<object>} - A promise that resolves an object with a success message
+   * @throws {Error} - If an error occurs while deleting the task 
+   */
 	const deleteTodo = async (id) => {
 		try {
 			setTodos(todos.filter((todo) => todo.id !== id));
@@ -72,7 +92,11 @@ export const TodosContextProvider = ({ children }) => {
 		}
 	};
 
-	// Changes the isEditing property of the todo item with the given id
+	/**
+   * Alters the state of isEditing property of the todo item with the given id
+   * @param {number} id - id of the todo item to be edited
+   * @returns {void} - returns nothing 
+   */
 	const editTodo = (id) => {
 		setTodos(
 			todos.map((todo) =>
@@ -81,7 +105,12 @@ export const TodosContextProvider = ({ children }) => {
 		);
 	};
 
-  // Edits the task of the todo item with the given id and changes the isEditing property to false and updates the database
+  /**
+   * 
+   * @param {number} id - id of the todo item to be edited 
+   * @param {string} newTask - new title of the todo item 
+   * @returns {void} - returns nothing
+   */
 	const editTask = (id, newTask) => {
 		setTodos(
 			todos.map((todo) =>
@@ -90,7 +119,11 @@ export const TodosContextProvider = ({ children }) => {
 		);
 	};
 
-  // Toggles the completed property of the todo item with the given id and updates the database
+  /**
+   * 
+   * @param {number} id - id of the todo item to be toggled
+   * @returns {void} - returns nothing
+   */
 	const toggleComplete = (id) => {
 		setTodos(
 			todos.map((todo) => {

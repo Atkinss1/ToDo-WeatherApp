@@ -2,6 +2,12 @@ import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { TodosContext } from '../context/TodosContext';
 
+/**
+ * EditToDoForm
+ * @param {object} task - object containing the task to be edited
+ * @returns {JSX.Element} - returns a form to edit the task
+ */
+
 export const EditToDoForm = ({ task }) => {
 
   const { editTask } = useContext(TodosContext);

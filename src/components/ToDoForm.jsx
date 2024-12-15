@@ -1,6 +1,11 @@
 import { useContext, useState } from "react";
 import { TodosContext } from "../context/TodosContext";
 
+
+/**
+ * ToDoForm
+ * @returns {JSX.Element} - returns a form to add a new task
+ */
 export const ToDoForm = () => {
 
   const { addTodo } = useContext(TodosContext);
