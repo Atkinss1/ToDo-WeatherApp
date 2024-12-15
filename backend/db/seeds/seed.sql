@@ -8,10 +8,12 @@ VALUES
   ('Go Shopping', 'Buy milk, eggs, and bread', FALSE, NOW()),
   ('Play Games', 'Rocket Leage at 9pm', FALSE, NOW()),
   ('Shovel Walkway', 'Snow is coming', FALSE, NOW()),
+  ('Walk Dog', 'Around the block', FALSE, NOW()),
+  ('Take Out Trash', 'Wednesday night', FALSE, NOW()),
   ('Clean House', 'Dishes, laundry, and vacuum', FALSE, NOW()),
   ('Workout', 'Run 5 miles', FALSE, NOW()),
   ('Read Book', 'Finish chapter 3', FALSE, NOW()),
   ('Call Mom', 'Check in on her', FALSE, NOW()),
   ('Watch Movie', 'The Godfather', FALSE, NOW()),
   ('Cook Dinner', 'Chicken Alfredo', FALSE, NOW()),
-  ('Go to Bed', 'Before 10pm', FALSE, NOW())
+  ('Go to Bed', 'Before 10pm', FALSE, NOW());
