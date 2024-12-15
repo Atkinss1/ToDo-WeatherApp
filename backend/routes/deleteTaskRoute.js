@@ -1,7 +1,12 @@
 import express from 'express';
 import { deleteTask } from '../db/queries/deleteTask.js';
 
-
+/**
+ * listens for DELETE requests at /deleteTask and passes the id to delete a task from the database
+ * 
+ * @param {client} client - database client
+ * @returns {router} - returns an express router
+ */
 export const deleteTaskRoute = (client) => {
   const router = express.Router();
 

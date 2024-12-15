@@ -1,10 +1,15 @@
 import express from 'express';
 import { addTask } from '../db/queries/addTask.js';
 
-const router = express.Router();
-
+/**
+ * listens for POST requests at /addTask and passes the task to addTask
+ * 
+ * @param {client} client - database client
+ * @returns {router} - returns an express router
+ */
 export const addTaskRoute = (client) => {
-
+  const router = express.Router();
+  
   router.post('/', (req, res) => {
     try{
       const { task } = req.body;
