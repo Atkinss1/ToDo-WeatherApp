@@ -16,7 +16,7 @@ export const deleteTaskRoute = (client) => {
 			const response = await deleteTask(client, id);
 
       if (response) {
-        res.status(201).json({ message: 'Task deleted successfully' });
+        res.status(201).json(response);
       }
       
     } catch (error) {

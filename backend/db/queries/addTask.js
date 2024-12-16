@@ -7,7 +7,7 @@
 export const addTask = (db, task) => {
   return new Promise((resolve, reject) => {
     const sql = 'INSERT INTO tasks (title) VALUES ($1)';
-    db.query(sql, [task], (err, ) => {
+    db.query(sql, [task], (err) => {
       if (err) {
         reject(err);
       } else {
