@@ -13,10 +13,13 @@ export const fetchTasksRoute = (client) => {
 	router.get('/', async (req, res) => {
     try {
 			const data = await getTasks(client);
+      
+      if (!data) {
+        res.status(404).json({ error: 'No tasks found' });
+      }
 			res.json(data);
 		} catch (err) {
-			console.error('error', err);
-			res.status(500).json({ error: 'Something went wrong' });
+			res.status(500).json({ error: `Something went wrong: ${err}` });
 		}
 	});
 
