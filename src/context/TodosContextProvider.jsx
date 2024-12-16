@@ -76,7 +76,7 @@ export const TodosContextProvider = ({ children }) => {
 			setTodos(todos.filter((todo) => todo.id !== id));
 
 			const response = await fetch('http://localhost:3000/deleteTask', {
-				method: 'DELETE',
+				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',
 				},

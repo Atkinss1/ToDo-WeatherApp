@@ -2,7 +2,7 @@ import express from 'express';
 import { deleteTask } from '../db/queries/deleteTask.js';
 
 /**
- * listens for DELETE requests at /deleteTask and passes the id to delete a task from the database
+ * listens for DELETE requests at /deleteTask and passes the id to update 'deleted_at' field in the database
  * 
  * @param {client} client - database client
  * @returns {router} - returns an express router
@@ -10,11 +10,15 @@ import { deleteTask } from '../db/queries/deleteTask.js';
 export const deleteTaskRoute = (client) => {
   const router = express.Router();
 
-  router.delete('/', (req, res) => {
+  router.put('/', async (req, res) => {
     try{
       const { id } = req.body;
-			deleteTask(client, id);
-      res.status(201).json({ message: 'Task deleted successfully'});
+			const response = await deleteTask(client, id);
+
+      if (response) {
+        res.status(201).json({ message: 'Task deleted successfully' });
+      }
+      
     } catch (error) {
       res.status(500).json({ error: `Failed to delete task: ${error}`});
     }

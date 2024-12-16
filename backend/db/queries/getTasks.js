@@ -5,7 +5,7 @@
  */
 export const getTasks = (db) => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT * FROM tasks ORDER BY created_at`;
+    const sql = `SELECT * FROM tasks WHERE deleted = false ORDER BY created_at`;
     db.query(sql, (err, results) => {
       
       if (err) {
