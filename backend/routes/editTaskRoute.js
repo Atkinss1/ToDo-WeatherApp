@@ -11,8 +11,8 @@ export const editTaskRouter = (client) => {
 
   router.put('/', async (req, res) => {
     try {
-      const { id, newTask } = req.body;
-    const response =  await editTask(client, id, newTask);
+      const { id, newTask, newDescription } = req.body;
+    const response =  await editTask(client, id, newTask, newDescription);
     if (response) {
       res.status(201).json(response);
     }

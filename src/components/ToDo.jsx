@@ -15,12 +15,22 @@ export const ToDo = ({ task }) => {
 
 	return (
 		<div className={`Todo`}>
-			<p
-				onClick={() => toggleComplete(task.id)}
-				className={`${task.completed ? 'completed' : 'task'}`}
-			>
-				{task.title}
-			</p>
+			<div className='Todo-details-wrapper'>
+				<div className='Todo-details'>
+					<p
+						onClick={() => toggleComplete(task.id)}
+						className={`${task.completed ? 'completed' : 'task'}`}
+					>
+						{task.title}
+					</p>
+					<p
+						onClick={() => toggleComplete(task.id)}
+						className={`${task.completed ? 'completed' : 'task'}`}
+					>
+						{task.description}
+					</p>
+				</div>
+			</div>
 			<div className='Todo'>
 				<FontAwesomeIcon
 					icon={faPenToSquare}
