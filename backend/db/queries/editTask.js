@@ -5,10 +5,10 @@
  * @param {string} newTask - new title of the todo item
  * @returns {Promise<object>} - returns a promise containing success message
  */
-export const editTask = (db, id, newTask) => {
+export const editTask = (db, id, newTask, newDescription) => {
   return new Promise ((resolve, reject) => {
-    const sql = 'UPDATE tasks SET title = $1, updated_at = NOW() WHERE id = $2';
-    const values = [newTask, id];
+    const sql = 'UPDATE tasks SET title = $1, description = $2, updated_at = NOW() WHERE id = $3';
+    const values = [newTask, newDescription, id];
     db.query(sql, values, (err) => {
       if (err) {
         reject(err);

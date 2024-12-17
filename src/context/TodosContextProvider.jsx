@@ -34,15 +34,15 @@ export const TodosContextProvider = ({ children }) => {
 
   /**
    * Adds a new todo item to the useState and the database
-   * @param {string} todo - title of the new todo item
+   * @param {string} title - title of the new todo item
    * @returns {Promise<void>} A promise that resolves to undefined
    * @throws {Error} - If an error occurs while adding the task 
    */
-	const addTodo = async (todo) => {
+	const addTodo = async (title, description ) => {
 		try {
 			setTodos([
 				...todos,
-				{ id: uuidv4(), title: todo, completed: false, isEditing: false },
+				{ id: uuidv4(), title: title, description: description, completed: false, isEditing: false },
 			]);
 
 			const response = await fetch('http://localhost:3000/addTask', {
@@ -50,7 +50,7 @@ export const TodosContextProvider = ({ children }) => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ task: todo }),
+				body: JSON.stringify({ task: title, description: description }),
 			});
 
 			if (!response.ok) {
@@ -114,11 +114,11 @@ export const TodosContextProvider = ({ children }) => {
    * @param {string} newTask - new title of the todo item 
    * @returns {void} - returns nothing
    */
-	const editTask = async (id, newTask) => {
+	const editTask = async (id, newTask, newDescription) => {
     try{
       setTodos(
 				todos.map((todo) =>
-					todo.id === id ? { ...todo, title: newTask, isEditing: false } : todo
+					todo.id === id ? { ...todo, title: newTask, description: newDescription, isEditing: false } : todo
 				)
 			);
 
@@ -127,7 +127,7 @@ export const TodosContextProvider = ({ children }) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ id, newTask })
+        body: JSON.stringify({ id, newTask, newDescription })
         }
       );
 

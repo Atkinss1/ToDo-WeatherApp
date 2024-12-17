@@ -12,8 +12,8 @@ export const addTaskRoute = (client) => {
   
   router.post('/', async (req, res) => {
     try{
-      const { task } = req.body;
-      const response = await addTask(client, task);
+      const { task, description } = req.body;
+      const response = await addTask(client, task, description);
       if (response) {
         res.status(201).json(response);
       }

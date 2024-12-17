@@ -9,23 +9,30 @@ import { TodosContext } from "../context/TodosContext";
 export const ToDoForm = () => {
 
   const { addTodo } = useContext(TodosContext);
-  const [value, setValue] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue('');
+    if (!title) return;
+    addTodo(title, description);
+    setTitle('');
   };
   return (
-    <form className='TodoFrom' onSubmit={handleSubmit}>
+    <form className='TodoForm' onSubmit={handleSubmit}>
       <input 
-        onChange={(e) => setValue(e.target.value)} 
+        onChange={(e) => setTitle(e.target.value)} 
         type="text" 
-        value={value}
+        value={title}
         className="todo-input" 
         placeholder="What is the task to do today?"
       />
+      <input
+        onChange={(e) => setDescription(e.target.value)}
+        type="description"
+        value={description}
+        className="todo-input"
+        placeholder="Description" />
       <button type="submit" className="todo-btn">Add Task</button>
     </form>
   )

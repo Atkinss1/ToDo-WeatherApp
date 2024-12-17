@@ -12,29 +12,39 @@ export const EditToDoForm = ({ task }) => {
 
   const { editTask } = useContext(TodosContext);
 	
-  const [value, setValue] = useState('');
+  const [title, setTitle] = useState(task.title);
+	const [description, setDescription] = useState(task.description);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!value) return;
-		editTask(task.id, value);
+		if (!title) return;
+		editTask(task.id, title, description);
+		setTitle('');
 	};
 	return (
 		<form
-			className='TodoFrom'
+			className='TodoForm'
 			onSubmit={handleSubmit}
 		>
 			<input
-				onChange={(e) => setValue(e.target.value)}
+				onChange={(e) => setTitle(e.target.value)}
 				type='text'
-				value={value}
+				value={title}
 				className='todo-input'
 				placeholder='Update Task'
+			/>
+			<input
+				onChange={(e) => setDescription(e.target.value)}
+				type='description'
+				value={description}
+				className='todo-input'
+				placeholder='Update Description'
 			/>
 			<button
 				type='submit'
 				className='todo-btn'
 			>
-				Update Task
+				Add Task
 			</button>
 		</form>
 	);
