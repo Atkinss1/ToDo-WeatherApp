@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { TodosContext } from "../context/TodosContext";
 
 
@@ -11,16 +11,27 @@ export const ToDoForm = () => {
   const { addTodo } = useContext(TodosContext);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [inputRef]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title) return;
     addTodo(title, description);
     setTitle('');
+    setDescription('');
+    inputRef.current.focus();
   };
+
+
   return (
     <form className='TodoForm' onSubmit={handleSubmit}>
-      <input 
+      <input
+        ref={inputRef} 
         onChange={(e) => setTitle(e.target.value)} 
         type="text" 
         value={title}
