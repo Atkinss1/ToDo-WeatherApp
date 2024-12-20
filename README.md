@@ -13,7 +13,7 @@ This is a simple ToDo application with a PostgreSQL database. It features a fron
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-repo/todo-app.git
+git clone git@github.com:Atkinss1/ToDo.git
 cd todo-app
 ```
 
