@@ -5,6 +5,7 @@ CREATE TABLE tasks (
   title VARCHAR(255) NOT NULL,
   description VARCHAR(255),
   completed BOOLEAN NOT NULL DEFAULT FALSE,
+  time_of_completion TIMESTAMP,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP,
   deleted BOOLEAN NOT NULL DEFAULT FALSE,
