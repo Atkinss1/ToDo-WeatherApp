@@ -149,15 +149,34 @@ export const TodosContextProvider = ({ children }) => {
    * @param {number} id - id of the todo item to be toggled
    * @returns {void} - returns nothing
    */
-	const toggleComplete = (id) => {
-		setTodos(
-			todos.map((todo) => {
-				if (todo.id === id) {
-					todo.completed = !todo.completed;
-				}
-				return todo;
-			})
-		);
+	const toggleComplete = async (id) => {
+    try{
+      setTodos(
+				todos.map((todo) => {
+					if (todo.id === id) {
+						todo.completed = !todo.completed;
+					}
+					return todo;
+				})
+			);
+
+      const response = await fetch('http://localhost:3000/toggleComplete', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+      });
+      const data = await response.json();
+      console.log(data);
+      if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+      }
+    } catch (error) {
+      throw new Error('Failed to toggle complete:', error);
+    };
+		
 	};
 
 	// useEffects
