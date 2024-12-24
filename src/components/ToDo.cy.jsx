@@ -17,7 +17,7 @@ describe('<ToDo />', () => {
       editTodo: cy.stub(),
       toggleComplete: cy.stub().callsFake(() => {
         task.completed = !task.completed;
-      })
+      }),
     }
 
     cy.mount(
@@ -27,15 +27,18 @@ describe('<ToDo />', () => {
 		);
 
     cy.get('.Todo').first().should('exist');
+    cy.get('.task').first().should('have.text', 'Test Task');
+    cy.get('.task').last().should('have.text', 'Test Description');
+
     cy.get('.Todo').last().should('exist');
+    cy.get('.edit-icon').should('exist');
+    cy.get('.edit-icon').click();
+    cy.get('.delete-icon').should('exist');
+    cy.get('.delete-icon').click();
+
     cy.get('.Todo-details-wrapper').should('exist');
     cy.get('.Todo-details').should('exist');
-    cy.get('.task').should('exist');
-    cy.get('.edit-icon').should('exist');
-    cy.get('.delete-icon').should('exist');
     cy.get('.Todo-details p').first().click();
     cy.get('.Todo-details p').last().click();
-    cy.get('.edit-icon').click();
-    cy.get('.delete-icon').click();
   })
 })
