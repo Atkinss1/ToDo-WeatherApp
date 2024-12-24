@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start:all": "concurrently \"npm run dev\" \" npm run dev --prefix ./backend\"",
-    "cypress:open": "export DISPLAY=:0 && npx cypress open"
+    "cy:open": "export DISPLAY=:0 && npx cypress open"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
@@ -24,6 +24,7 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
+    "@cypress/vite-dev-server": "^5.2.1",
     "@eslint/js": "^9.15.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
