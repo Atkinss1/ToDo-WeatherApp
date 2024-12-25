@@ -10,7 +10,7 @@ import { TodosContext } from '../context/TodosContext';
 
 export const EditToDoForm = ({ task }) => {
 
-  const { editTask } = useContext(TodosContext);
+  const { editTask, editTodo } = useContext(TodosContext);
 	
   const [title, setTitle] = useState(task.title);
 	const [description, setDescription] = useState(task.description);
@@ -44,7 +44,14 @@ export const EditToDoForm = ({ task }) => {
 				type='submit'
 				className='todo-btn'
 			>
-				Add Task
+				Update Task
+			</button>
+			<button 
+				type='button'
+				className='todo-btn'
+        onClick={() => editTodo(task.id)}
+			>
+				Cancel
 			</button>
 		</form>
 	);

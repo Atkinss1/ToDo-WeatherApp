@@ -38,7 +38,14 @@ describe('<ToDo />', () => {
 
     cy.get('.Todo-details-wrapper').should('exist');
     cy.get('.Todo-details').should('exist');
-    cy.get('.Todo-details p').first().click();
-    cy.get('.Todo-details p').last().click();
+    cy.get('.Todo-details p').first().click().then(() => {
+      expect(contextValue.toggleComplete).to.have.been.called;
+      expect(task.completed).to.be.true;
+    });
+    
+    cy.get('.Todo-details p').last().click().then(() => {
+      expect(contextValue.toggleComplete).to.have.been.called;
+      expect(task.completed).to.be.false;
+    });
   })
 })
