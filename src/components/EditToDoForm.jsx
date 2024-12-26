@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
-import { TodosContext } from '../context/TodosContext';
+import { TodosContext } from '../hooks/TodosContext';
 
 /**
  * EditToDoForm
@@ -9,10 +9,9 @@ import { TodosContext } from '../context/TodosContext';
  */
 
 export const EditToDoForm = ({ task }) => {
+	const { editTask, editTodo } = useContext(TodosContext);
 
-  const { editTask, editTodo } = useContext(TodosContext);
-	
-  const [title, setTitle] = useState(task.title);
+	const [title, setTitle] = useState(task.title);
 	const [description, setDescription] = useState(task.description);
 
 	const handleSubmit = (e) => {
@@ -46,10 +45,10 @@ export const EditToDoForm = ({ task }) => {
 			>
 				Update Task
 			</button>
-			<button 
+			<button
 				type='button'
 				className='todo-btn'
-        onClick={() => editTodo(task.id)}
+				onClick={() => editTodo(task.id)}
 			>
 				Cancel
 			</button>
@@ -58,5 +57,5 @@ export const EditToDoForm = ({ task }) => {
 };
 
 EditToDoForm.propTypes = {
-  task: PropTypes.object.isRequired
+	task: PropTypes.object.isRequired,
 };

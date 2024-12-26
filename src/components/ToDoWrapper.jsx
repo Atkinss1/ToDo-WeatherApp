@@ -2,7 +2,7 @@ import { EditToDoForm } from './EditToDoForm';
 import { ToDo } from './ToDo';
 import { ToDoForm } from './ToDoForm';
 import { useContext } from 'react';
-import { TodosContext } from '../context/TodosContext';
+import { TodosContext } from '../hooks/TodosContext';
 
 /**
  * ToDoWrapper

@@ -2,7 +2,7 @@ import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { TodosContext } from '../context/TodosContext';
+import { TodosContext } from '../hooks/TodosContext';
 
 
 /**

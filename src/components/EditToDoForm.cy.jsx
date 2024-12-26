@@ -1,6 +1,6 @@
 import React from 'react'
 import { EditToDoForm } from './EditToDoForm'
-import { TodosContext } from '../context/TodosContext'
+import { TodosContext } from '../hooks/TodosContext'
 
 describe('<EditToDoForm />', () => {
   it('renders', () => {

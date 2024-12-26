@@ -1,6 +1,6 @@
 
 import { ToDoForm } from './ToDoForm';
-import { TodosContext } from '../context/TodosContext';
+import { TodosContext } from '../hooks/TodosContext';
 
 describe('<ToDoForm />', () => {
   it('renders', () => {
