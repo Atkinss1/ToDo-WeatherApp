@@ -1,7 +1,6 @@
 import { EditToDoForm } from './EditToDoForm';
 import { ToDo } from './ToDo';
 import { ToDoForm } from './ToDoForm';
-import { useContext } from 'react';
 import { useTodosContext } from '../hooks/TodosContext';
 
 /**

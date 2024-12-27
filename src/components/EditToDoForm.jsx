@@ -17,7 +17,6 @@ export const EditToDoForm = ({ task }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!title) return;
-    console.log('Calling editTask with:', task.id, title, description );
 		editTask(task.id, title, description);
 	};
 	return (
