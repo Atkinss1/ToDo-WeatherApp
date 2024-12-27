@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 const { Client } = pkg;
 const options = {
-	origin: 'http://localhost:5174',
+	origin: ['http://localhost:5174', 'http://localhost:5173']
 };
 
 // Enable express to parse JSON data
