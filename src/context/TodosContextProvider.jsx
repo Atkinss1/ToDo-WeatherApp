@@ -148,8 +148,6 @@ export const TodosContextProvider = ({ children }) => {
 				throw new Error(message);
 			}
 
-			const data = await response.json();
-			console.log(data);
 		} catch (error) {
 			throw new Error('Failed to edit todo:', error);
 		}
@@ -178,8 +176,6 @@ export const TodosContextProvider = ({ children }) => {
 				},
 				body: JSON.stringify({ id }),
 			});
-			const data = await response.json();
-			console.log(data);
 			if (!response.ok) {
 				const message = `An error has occured: ${response.status}`;
 				throw new Error(message);
