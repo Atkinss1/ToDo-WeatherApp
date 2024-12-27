@@ -1,6 +1,6 @@
 import React from 'react'
 import { ToDo } from './ToDo'
-import { TodosContext } from '../context/TodosContext'
+import { TodosContext } from '../hooks/TodosContext'
 
 describe('<ToDo />', () => {
   it('renders', () => {

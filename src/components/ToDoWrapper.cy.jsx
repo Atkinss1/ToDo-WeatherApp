@@ -1,6 +1,6 @@
 import React from 'react';
 import { ToDoWrapper } from './ToDoWrapper';
-import { TodosContext } from '../context/TodosContext';
+import { TodosContext } from '../hooks/TodosContext';
 
 describe('<ToDoWrapper />', () => {
   it('renders', () => {
