@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
-import { TodosContext } from '../hooks/TodosContext';
+import { useState } from 'react';
+import { useTodosContext } from '../hooks/TodosContext';
 
 /**
  * EditToDoForm
@@ -9,7 +9,7 @@ import { TodosContext } from '../hooks/TodosContext';
  */
 
 export const EditToDoForm = ({ task }) => {
-	const { editTask, editTodo } = useContext(TodosContext);
+	const { editTask, editTodo } = useTodosContext();
 
 	const [title, setTitle] = useState(task.title);
 	const [description, setDescription] = useState(task.description);
@@ -17,8 +17,8 @@ export const EditToDoForm = ({ task }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!title) return;
+    console.log('Calling editTask with:', task.id, title, description );
 		editTask(task.id, title, description);
-		setTitle('');
 	};
 	return (
 		<form

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TodosContext } from '../hooks/TodosContext';
+
+export const TodosContext = createContext();
 
 /**
  * ToDosContextProvider

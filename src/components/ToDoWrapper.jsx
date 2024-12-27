@@ -2,7 +2,7 @@ import { EditToDoForm } from './EditToDoForm';
 import { ToDo } from './ToDo';
 import { ToDoForm } from './ToDoForm';
 import { useContext } from 'react';
-import { TodosContext } from '../hooks/TodosContext';
+import { useTodosContext } from '../hooks/TodosContext';
 
 /**
  * ToDoWrapper
@@ -10,7 +10,7 @@ import { TodosContext } from '../hooks/TodosContext';
  */
 export const ToDoWrapper = () => {
 
-  const { todos } = useContext(TodosContext);
+  const { todos } = useTodosContext();
 
 	return (
 		<div className='TodoWrapper'>
