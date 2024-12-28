@@ -14,7 +14,10 @@ export const ToDo = ({ task }) => {
 	const { deleteTodo, editTodo, toggleComplete } = useTodosContext();
 
 	return (
-		<div className={`Todo`}>
+		<div
+			className={`Todo`}
+			id='[data-test=new-todo]'
+		>
 			<div className='Todo-details-wrapper'>
 				<div className='Todo-details'>
 					<p
