@@ -29,6 +29,7 @@ h1 {
   margin-top: 5rem;
   padding: 2rem;
   border-radius: 5px;
+  width: 100%;
 }
 
 .TodoForm {
@@ -90,7 +91,8 @@ h1 {
   cursor: pointer;
 }
 
-.fa-trash {
+.fa-trash,
+.cancel-delete {
   margin-left: 0.75rem;
 }
 
@@ -106,6 +108,8 @@ h1 {
 }
 
 .edit-icon,
-.delete-icon {
+.delete-icon,
+.checkMark-icon,
+.cancel-delete {
   cursor: pointer;
 }
