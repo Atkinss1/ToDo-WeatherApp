@@ -24,6 +24,10 @@ h1 {
   font-size: 1.75rem;
 }
 
+.dropdown-label {
+  color: white;
+}
+
 .TodoWrapper {
   background: #1A1A40;
   margin-top: 5rem;
