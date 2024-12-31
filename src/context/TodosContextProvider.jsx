@@ -25,8 +25,11 @@ export const TodosContextProvider = ({ children }) => {
 				const message = `An error has occured: ${response.status}`;
 				throw new Error(message);
 			}
-			const data = await response.json();
-			setTodos(data);
+			
+      const data = await response.json();
+
+      setTodos(data);
+  
 		} catch (error) {
 			console.error('Failed to fetch tasks:', error);
 		}
