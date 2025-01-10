@@ -1,7 +1,9 @@
 import express  from 'express';
 import pkg  from 'pg';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
 const PORT = 3000;
 const { Client } = pkg;
@@ -17,10 +19,10 @@ app.use(cors(options));
 
 // Initialize the database connection
 const client = new Client({
-  host: 'localhost',
-  user: 'labber',
-  password: 'labber',
-  database: 'todo'
+  host: process.env.REACT_APP_HOST,
+  user: process.env.REACT_APP_USER,
+  password: process.env.REACT_APP_PASSWORD,
+  database: process.env.REACT_APP_DATABASE
 });
 
 // Import routes
