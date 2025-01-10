@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { useTodosContext } from '../hooks/TodosContext';
+import { DropdownMenu } from './DropdownMenu';
 import { EditToDoForm } from './EditToDoForm';
 import { ToDo } from './ToDo';
 import { ToDoForm } from './ToDoForm';
@@ -9,12 +11,29 @@ import { ToDoForm } from './ToDoForm';
  */
 export const ToDoWrapper = () => {
 	const { todos } = useTodosContext();
+  const [filteredCondition, setFilteredCondition] = useState('');
+
+  const handleFilterChange = (condition) => {
+    setFilteredCondition(condition);
+  };
+
+  const filteredTodos = todos.filter((condition) => {
+    if (filteredCondition === 'completed') {
+      return condition.completed
+    };
+
+    if (filteredCondition === 'incomplete') {
+      return !condition.completed
+    };
+    return true;
+  });
 
 	return (
 		<div className='TodoWrapper'>
 			<h1>ToDo List</h1>
+      <DropdownMenu onFilterChange={handleFilterChange}/>
 			<ToDoForm />
-			{todos.map((todo, index) =>
+			{filteredTodos.map((todo, index) =>
 				todo.isEditing ? (
 					<div
 						key={index}
@@ -30,7 +49,7 @@ export const ToDoWrapper = () => {
 						<ToDo task={todo} />
 					</div>
 				)
-			)}
+      )} 
 		</div>
 	);
 };
