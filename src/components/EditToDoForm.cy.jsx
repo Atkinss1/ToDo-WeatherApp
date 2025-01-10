@@ -1,6 +1,6 @@
-import React from 'react';
-import { EditToDoForm } from './EditToDoForm';
-import { TodosContextProvider } from '../context/TodosContextProvider';
+import React from 'react'
+import { EditToDoForm } from './EditToDoForm'
+import { TodosContext } from '../hooks/useTodosContext'
 
 describe('<EditToDoForm />', () => {
   it('renders and interacts correctly', () => {
