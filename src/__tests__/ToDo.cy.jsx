@@ -1,17 +1,15 @@
-import React from 'react'
-import { ToDo } from './ToDo'
-import { TodosContext } from '../context/TodosContextProvider'
+import React from 'react';
+import { ToDo } from '../components/ToDo';
+import { TodosContext } from '../state/TodosContextProvider';
 
 describe('<ToDo />', () => {
-  it('renders', () => {
+	it('renders', () => {
+		cy.fixture('tasks.json').then((tasks) => {
+			// Parse fixutre data to a single todo
+			const todo = tasks.todos[0];
 
-    cy.fixture('tasks.json').then((tasks) => {
-      
-      // Parse fixutre data to a single todo
-      const todo = tasks.todos[0];
-
-      // Create a context value object with the required functions
-      const contextValue = {
+			// Create a context value object with the required functions
+			const contextValue = {
 				deleteTodo: cy.stub().callsFake(() => {
 					todo.isDeleted = !todo.isDeleted;
 				}),
@@ -23,7 +21,7 @@ describe('<ToDo />', () => {
 				}),
 			};
 
-      // Mount the ToDo component
+			// Mount the ToDo component
 			cy.mount(
 				<TodosContext.Provider value={contextValue}>
 					<ToDo task={todo} />
@@ -79,9 +77,6 @@ describe('<ToDo />', () => {
 					expect(contextValue.deleteTodo).to.have.been.called;
 					expect(todo.isDeleted).to.be.true;
 				});
-    });
-    
-    
-    
-  })
-})
+		});
+	});
+});

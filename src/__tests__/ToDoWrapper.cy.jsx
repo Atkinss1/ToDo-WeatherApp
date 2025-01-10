@@ -1,15 +1,12 @@
 import React from 'react';
-import { ToDoWrapper } from './ToDoWrapper';
-import { TodosContext } from '../context/TodosContextProvider';
+import { ToDoWrapper } from '../components/ToDoWrapper';
+import { TodosContext } from '../state/TodosContextProvider';
 
 describe('<ToDoWrapper />', () => {
-  it('renders', () => {
-    
-    
-    cy.fixture('tasks.json').then((todos) => {
-      
-      // Mount the ToDoWrapper component
-      cy.mount(
+	it('renders', () => {
+		cy.fixture('tasks.json').then((todos) => {
+			// Mount the ToDoWrapper component
+			cy.mount(
 				<TodosContext.Provider value={todos}>
 					<ToDoWrapper />
 				</TodosContext.Provider>
@@ -26,8 +23,6 @@ describe('<ToDoWrapper />', () => {
 
 			// Check if the EditToDoForm component is not rendered
 			cy.get('.EditToDoForm').should('not.exist');
-    });
-    
-
-  })
-})
+		});
+	});
+});
