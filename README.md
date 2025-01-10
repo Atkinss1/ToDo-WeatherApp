@@ -33,10 +33,10 @@ cd ToDo
    ```bash
    cd backend/db
    ```
-2. Run the schema and seed files in your PostgreSQL client:
+1. Run the schema and seed files in your PostgreSQL client:
    ```sql
-   \i schema.sql
-   \i seeds.sql
+   \i schema/schema.sql
+   \i seeds/seeds.sql
    ```
 
 ### 4. Update Database Credentials
