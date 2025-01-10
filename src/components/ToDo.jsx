@@ -5,8 +5,7 @@ import {
 	faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import PropTypes from 'prop-types';;
 import { useTodosContext } from '../hooks/TodosContext';
 
 /**
@@ -15,13 +14,7 @@ import { useTodosContext } from '../hooks/TodosContext';
  * @returns {JSX.Element} - returns a div containing the task and edit and delete icons
  */
 export const ToDo = ({ task }) => {
-	const { deleteTodo, editTodo, toggleComplete } = useTodosContext();
-	const [isDeleting, setIsDeleting] = useState(false);
-
-	const handleDelete = (taskId) => {
-		deleteTodo(task.id);
-		setIsDeleting(false);
-	};
+	const { deleteTodo, editTodo, toggleComplete } = useTodosContext;
 
 	return (
 		<>
