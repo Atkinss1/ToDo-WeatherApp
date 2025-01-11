@@ -9,14 +9,21 @@ import { useTodosContext } from '../state/hooks/TodosContext';
  */
 
 export const EditToDoForm = ({ task }) => {
-	const { editTask, editTodo } = useTodosContext();
+	const { editTask, editTodo, toggleEdit } = useTodosContext();
 
+  const [initialTitle, setInitialTite] = useState(task.title);
+  const [initialDesc, setInitialDesc] = useState(task.description);
 	const [title, setTitle] = useState(task.title);
 	const [description, setDescription] = useState(task.description);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!title) return;
+    if (initialTitle === title && initialDesc === description) {
+      toggleEdit(task.id);
+      return;
+    }
+    
 		editTask(task.id, title, description);
 	};
 	return (

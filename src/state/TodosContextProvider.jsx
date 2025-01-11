@@ -129,12 +129,13 @@ export const TodosContextProvider = ({ children }) => {
 			setTodos(
 				todos.map((todo) =>
 					todo.id === id
-						? {
+						?
+            {
 								...todo,
 								title: newTask,
 								description: newDescription,
 								isEditing: false,
-						  }
+						  } 
 						: todo
 				)
 			);
@@ -156,6 +157,18 @@ export const TodosContextProvider = ({ children }) => {
 			throw new Error('Failed to edit todo:', error);
 		}
 	};
+  /**
+   * used to toggle the isEditing property of the todo item with the given id if the user didn't make any changes
+   * @param {number} id - id of the todo item to be toggled
+   */
+
+  const toggleEdit = (id) => {
+    setTodos(
+      todos.map((todo) =>  
+        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+      )
+    )
+  }
 
 	/**
 	 *
@@ -196,7 +209,7 @@ export const TodosContextProvider = ({ children }) => {
 
 	return (
 		<TodosContext.Provider
-			value={{ addTodo, deleteTodo, editTodo, editTask, toggleComplete, todos }}
+			value={{ addTodo, deleteTodo, editTodo, editTask, toggleComplete, toggleEdit, todos }}
 		>
 			{children}
 		</TodosContext.Provider>
