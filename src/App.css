@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import './utopia.css';
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -12,42 +13,50 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--space-l);
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  width: 100vw;
 }
 
 .App {
   text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-inline: var(--space-3xs);
 }
 
 h1 {
   color: #fff;
-  margin-bottom: 0.5rem;
-  font-size: 1.75rem;
+  margin-bottom: var(--space-xs);
+  font-size: var(--step-4);
 }
 
 .dropdown-label {
   color: white;
+  font-size: var(--step--1);
 }
 
 #dropdown {
   background: #1A1A40;
   color: white;
   border: white;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+  padding: var(--space-3xs);
+  margin: var(--space-3xs) 0 0 var(--space-3xs);
+  font-size: var(--step--3);
 }
 
 .TodoWrapper {
   background: #1A1A40;
-  margin-top: 5rem;
-  padding: 2rem;
+  margin-block: var(--space-l);
+  padding: var(--space-m);
   border-radius: 5px;
-  width: 100%;
+  max-width: 100%;
 }
 
 .TodoForm {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-xs);
   display: flex;
   flex-direction: column;
   align-items: center;
