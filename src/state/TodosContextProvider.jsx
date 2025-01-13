@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState, createContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import todosService  from '../service/todosService';
 
 
 export const TodosContext = createContext();
@@ -20,14 +21,11 @@ export const TodosContextProvider = ({ children }) => {
 	 */
 	const getTasks = async () => {
 		try {
-			const response = await fetch('http://localhost:3000/getTasks');
+			const data = await todosService.getTasksAPI();
 
-			if (!response.ok) {
-				const message = `An error has occured: ${response.status}`;
-				throw new Error(message);
-			}
-			
-      const data = await response.json();
+      if (!data) {
+        return;
+      }
 
       setTodos(data);
   
@@ -44,6 +42,8 @@ export const TodosContextProvider = ({ children }) => {
 	 */
 	const addTodo = async (title, description) => {
 		try {
+      
+      await todosService.addTaskAPI(title, description);
 			setTodos([
 				...todos,
 				{
@@ -55,21 +55,6 @@ export const TodosContextProvider = ({ children }) => {
 				},
 			]);
 
-			const response = await fetch('http://localhost:3000/addTask', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ task: title, description: description }),
-			});
-
-			if (!response.ok) {
-				const message = `An error has occured: ${response.status}`;
-				throw new Error(message);
-			}
-
-			const data = await response.json();
-			console.log(data);
 		} catch (error) {
 			throw new Error('Failed to add todo:', error);
 		}
@@ -83,28 +68,16 @@ export const TodosContextProvider = ({ children }) => {
 	 */
 	const deleteTodo = async (id) => {
 		try {
+      
+      await todosService.deleteTaskAPI(id);
 			setTodos(todos.filter((todo) => todo.id !== id));
 
-			const response = await fetch('http://localhost:3000/deleteTask', {
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ id }),
-			});
-
-			if (!response.ok) {
-				const message = `An error has occured: ${response.status}`;
-				throw new Error(message);
-			}
-
-			const data = await response.json();
-			console.log(data);
 		} catch (error) {
 			throw new Error('Failed to delete todo:', error);
 		}
 	};
 
+  // TODO: duplicate function; remove
 	/**
 	 * Alters the state of isEditing property of the todo item with the given id
 	 * @param {number} id - id of the todo item to be edited
@@ -126,6 +99,8 @@ export const TodosContextProvider = ({ children }) => {
 	 */
 	const editTask = async (id, newTask, newDescription) => {
 		try {
+      
+      await todosService.editTaskAPI(id, newTask, newDescription);
 			setTodos(
 				todos.map((todo) =>
 					todo.id === id
@@ -140,19 +115,6 @@ export const TodosContextProvider = ({ children }) => {
 				)
 			);
 
-			const response = await fetch('http://localhost:3000/editTask', {
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ id, newTask, newDescription }),
-			});
-
-			if (!response.ok) {
-				const message = `An error has occured: ${response.status}`;
-				throw new Error(message);
-			}
-
 		} catch (error) {
 			throw new Error('Failed to edit todo:', error);
 		}
@@ -162,14 +124,6 @@ export const TodosContextProvider = ({ children }) => {
    * @param {number} id - id of the todo item to be toggled
    */
 
-  const toggleEdit = (id) => {
-    setTodos(
-      todos.map((todo) =>  
-        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-      )
-    )
-  }
-
 	/**
 	 *
 	 * @param {number} id - id of the todo item to be toggled
@@ -177,6 +131,8 @@ export const TodosContextProvider = ({ children }) => {
 	 */
 	const toggleComplete = async (id) => {
 		try {
+      
+      await todosService.toggleCompleteAPI(id);
 			setTodos(
 				todos.map((todo) => {
 					if (todo.id === id) {
@@ -186,17 +142,6 @@ export const TodosContextProvider = ({ children }) => {
 				})
 			);
 
-			const response = await fetch('http://localhost:3000/toggleComplete', {
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ id }),
-			});
-			if (!response.ok) {
-				const message = `An error has occured: ${response.status}`;
-				throw new Error(message);
-			}
 		} catch (error) {
 			throw new Error('Failed to toggle complete:', error);
 		}
@@ -209,7 +154,7 @@ export const TodosContextProvider = ({ children }) => {
 
 	return (
 		<TodosContext.Provider
-			value={{ addTodo, deleteTodo, editTodo, editTask, toggleComplete, toggleEdit, todos }}
+			value={{ addTodo, deleteTodo, editTodo, editTask, toggleComplete, todos }}
 		>
 			{children}
 		</TodosContext.Provider>
@@ -219,3 +164,5 @@ export const TodosContextProvider = ({ children }) => {
 TodosContextProvider.propTypes = {
 	children: PropTypes.node.isRequired,
 };
+
+export default TodosContextProvider;

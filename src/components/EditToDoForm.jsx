@@ -9,7 +9,7 @@ import { useTodosContext } from '../state/hooks/TodosContext';
  */
 
 export const EditToDoForm = ({ task }) => {
-	const { editTask, editTodo, toggleEdit } = useTodosContext();
+	const { editTask, editTodo } = useTodosContext();
 
   const [initialTitle, setInitialTite] = useState(task.title);
   const [initialDesc, setInitialDesc] = useState(task.description);
@@ -20,7 +20,7 @@ export const EditToDoForm = ({ task }) => {
 		e.preventDefault();
 		if (!title) return;
     if (initialTitle === title && initialDesc === description) {
-      toggleEdit(task.id);
+      editTodo(task.id);
       return;
     }
     
