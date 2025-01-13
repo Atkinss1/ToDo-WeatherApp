@@ -28,6 +28,15 @@ h1 {
   color: white;
 }
 
+#dropdown {
+  background: #1A1A40;
+  color: white;
+  border: white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
 .TodoWrapper {
   background: #1A1A40;
   margin-top: 5rem;

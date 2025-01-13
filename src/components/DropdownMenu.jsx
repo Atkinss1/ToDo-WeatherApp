@@ -9,6 +9,8 @@ export const DropdownMenu = ({ onFilterChange }) => {
 		<div className='dropdown-menu'>
 			<label htmlFor='dropdown' className='dropdown-label'>Sort list by: </label>
 			<select
+        name='dropdown'
+        id='dropdown'
 				onChange={handleSelectedValue}
 			>
 				<option defaultValue='all'>All</option>
