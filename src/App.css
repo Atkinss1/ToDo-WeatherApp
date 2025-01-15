@@ -21,9 +21,10 @@ body {
 
 .App {
   text-align: center;
-  max-width: 100%;
-  margin: 0 auto;
-  margin-inline: var(--space-3xs);
+  max-width: 900px;
+  min-width: 300px;
+  margin-inline: auto;
+  padding-inline: var(--space-l);
 }
 
 h1 {
@@ -71,7 +72,7 @@ h1 {
   width: 100%;
   max-width: calc(100% - var(--space-l));
   min-width: 175px;
-  font-size: var(--step--3);
+  font-size: var(--fluid-11-30);
   color: white;
 }
 
@@ -87,6 +88,11 @@ h1 {
   border: none;
   padding: var(--space-2xs);
   cursor: pointer;
+}
+
+.TodoContainer {
+  max-width: 100%;
+  margin: var(--space-s) var(--space-s);
 }
 
 .Todo {

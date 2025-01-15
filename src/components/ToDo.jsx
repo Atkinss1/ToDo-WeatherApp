@@ -19,7 +19,7 @@ export const ToDo = ({ task }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 
 	const handleDelete = (taskId) => {
-		deleteTodo(task.id);
+		deleteTodo(taskId);
 		setIsDeleting(false);
 	};
 

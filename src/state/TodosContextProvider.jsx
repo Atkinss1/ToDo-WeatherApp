@@ -23,11 +23,7 @@ export const TodosContextProvider = ({ children }) => {
 		try {
 			const data = await todosService.getTasksAPI();
 
-      if (!data) {
-        return;
-      }
-
-      setTodos(data);
+      !data ? setTodos([]) : setTodos(data);
   
 		} catch (error) {
 			console.error('Failed to fetch tasks:', error);
@@ -42,18 +38,17 @@ export const TodosContextProvider = ({ children }) => {
 	 */
 	const addTodo = async (title, description) => {
 		try {
+
+      const newTodo = {
+				id: uuidv4(),
+				title,
+				description,
+				completed: false,
+				isEditing: false,
+			};
       
       await todosService.addTaskAPI(title, description);
-			setTodos([
-				...todos,
-				{
-					id: uuidv4(),
-					title: title,
-					description: description,
-					completed: false,
-					isEditing: false,
-				},
-			]);
+			setTodos([ ...todos, newTodo ]);
 
 		} catch (error) {
 			throw new Error('Failed to add todo:', error);
@@ -135,10 +130,7 @@ export const TodosContextProvider = ({ children }) => {
       await todosService.toggleCompleteAPI(id);
 			setTodos(
 				todos.map((todo) => {
-					if (todo.id === id) {
-						todo.completed = !todo.completed;
-					}
-					return todo;
+					todo.id === id ? { ...todo, completed: !todo.completed } : todo;
 				})
 			);
 

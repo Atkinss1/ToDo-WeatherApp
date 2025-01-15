@@ -37,7 +37,7 @@ export const ToDoWrapper = () => {
 				todo.isEditing ? (
 					<div
 						key={index}
-						className='TodoContainer'
+						className='EditTodoContainer'
 					>
 						<EditToDoForm task={todo} />
 					</div>
