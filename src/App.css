@@ -13,86 +13,92 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--space-l);
   overflow-y: scroll;
   scrollbar-width: thin;
-  width: 100vw;
+  min-width: 100%;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .App {
   text-align: center;
-  max-width: 900px;
-  min-width: 300px;
-  margin-inline: auto;
-  padding-inline: var(--space-l);
+  width: 50%;
+  margin: auto;
 }
 
-h1 {
+.TodoWrapper h1 {
   color: #fff;
-  margin-bottom: var(--space-xs);
-  font-size: var(--step-4);
+  font-size: var(--space-s-2xl);
+}
+
+.dropdown-menu {
+  max-width: 100%;
+  margin: var(--space-s);
+  box-sizing: border-box;
 }
 
 .dropdown-label {
   color: white;
-  font-size: var(--step--1);
+  margin-right: var(--space-xs);
+  font-size: var(--space-2xs-l);
 }
 
 #dropdown {
+  max-width: 100%;
   background: #1A1A40;
   color: white;
   border: white;
-  padding: var(--space-3xs);
-  margin: var(--space-3xs) 0 0 var(--space-3xs);
-  font-size: var(--step--2);
+  font-size: var(--space-2xs-m);
+  margin-inline: auto;
 }
 
 .TodoWrapper {
+  width: 100%;
+  margin-block: var(--space-xs-l);
   background: #1A1A40;
-  margin-block: var(--space-l);
-  padding: var(--space-m);
   border-radius: 5px;
-  max-width: 100%;
+  padding: var(--space-xs-l);
 }
 
 .TodoForm {
-  width: 100%;
-  margin-bottom: var(--space-xs);
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
+  margin: auto;
 }
 
 .todo-input {
   background: none;
   border: 1px solid #8758ff;
-  padding: var(--space-2xs);
-  margin-top: var(--space-s);
-  margin-bottom: var(--space-m);
-  width: 100%;
-  max-width: calc(100% - var(--space-l));
-  min-width: 175px;
-  font-size: var(--fluid-11-30);
+  font-size: var(--space-xs-l);
   color: white;
+  width: 100%;
+  margin: var(--space-3xs-xs);
 }
 
 .todo-input::placeholder {
   color: #ffffff4d;
   white-space: nowrap;
   overflow: visible;
+  font-size: var(--space-2xs-l);
 }
 
 .todo-btn {
   background: #8758ff;
   color: #fff;
   border: none;
-  padding: var(--space-2xs);
   cursor: pointer;
+  margin-block: var(--space-s);
+  width: calc(50% - var(--space-3xs-xs));
 }
 
 .TodoContainer {
-  max-width: 100%;
-  margin: var(--space-s) var(--space-s);
+  padding: var(--space-xs);
 }
 
 .Todo {
@@ -101,15 +107,12 @@ h1 {
   align-items: center;
   background: #8758ff;
   color: #fff;
-  padding: var(--space-2xs) var(--space-xs);
   border-radius: 5px;
-  margin-bottom: var(--space-s);
 }
 .Todo-details-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   font-size: var(--space-xs-l);
 }
 
