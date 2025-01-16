@@ -35,7 +35,7 @@ export const ToDoForm = () => {
 				type='text'
 				value={title}
 				className='todo-input'
-				placeholder='What is the task to do today?'
+				placeholder='What is the task to accomplish?'
 			/>
 			<input
 				onChange={(e) => setDescription(e.target.value)}

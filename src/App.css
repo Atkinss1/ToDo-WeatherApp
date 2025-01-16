@@ -69,7 +69,7 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: 100%;
-  margin: auto;
+  margin: var(--space-s);
 }
 
 .todo-input {
@@ -84,7 +84,6 @@ body {
 .todo-input::placeholder {
   color: #ffffff4d;
   white-space: nowrap;
-  overflow: visible;
   font-size: var(--space-2xs-l);
 }
 
@@ -94,7 +93,8 @@ body {
   border: none;
   cursor: pointer;
   margin-block: var(--space-s);
-  width: calc(50% - var(--space-3xs-xs));
+  width: 50%;
+  padding: var(--space-2xs);
 }
 
 .TodoContainer {
