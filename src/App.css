@@ -108,12 +108,16 @@ body {
   background: #8758ff;
   color: #fff;
   border-radius: 5px;
+  padding: var(--space-xs);
+  max-width: 100%;
 }
+
 .Todo-details-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--space-xs-l);
+  font-size: var(--space-2xs-l);
+  width: 50%;
 }
 
 .Todo-details {
@@ -130,6 +134,7 @@ body {
 .fa-trash,
 .cancel-delete {
   margin-left: var(--space-2xs);
+  
 }
 
 .incompleted {
