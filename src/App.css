@@ -93,23 +93,28 @@ body {
   border: none;
   cursor: pointer;
   margin-block: var(--space-s);
-  width: 50%;
-  padding: var(--space-2xs);
+  width: calc(60% - var(--space-3xs-s));
+  line-height: var(--space-s-2xl);
+  font-size: var(--space-2xs-l);
 }
 
 .TodoContainer {
-  padding: var(--space-xs);
+  padding: var(--space-2xs);
 }
 
 .Todo {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background: #8758ff;
   color: #fff;
   border-radius: 5px;
-  padding: var(--space-xs);
+  padding-inline: var(--space-3xs-s);
   max-width: 100%;
+}
+
+.Todo-icon {
+  margin-left: var(--space-3xs-s);
 }
 
 .Todo-details-wrapper {

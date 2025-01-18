@@ -5,14 +5,18 @@
  */
 export const getTasks = (db) => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT * FROM tasks WHERE deleted = false ORDER BY created_at`;
+    const sql = `SELECT * FROM tasks`;
     db.query(sql, (err, results) => {
-      
       if (err) {
-        reject(err);
-      } else {
-        resolve(results.rows);
+        console.log('Failed to fetch tasks:', err);
+        return reject(err);
       }
+      console.log('Query results', results.rows);
+      if (results.rows.length > 0) {
+        return resolve(results.rows);
+      }
+      console.log('No tasks found');
+      return resolve([]);
     })
   });
 };

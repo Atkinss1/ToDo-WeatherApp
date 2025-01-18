@@ -13,9 +13,11 @@ export const completeTask = async (db, id) => {
                 WHERE id = $1`;
 		db.query(sql, [id], (error) => {
 			if (error) {
-				reject({ error: `Failed to mark task as completed: ${error}` });
+				return reject({ error: `Failed to mark task as completed: ${error}` });
 			}
-			resolve({ message: 'Task marked as completed' });
+			
+      return resolve({ message: 'Task marked as completed' });
+      
 		});
 	});
 };

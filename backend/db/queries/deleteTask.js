@@ -9,9 +9,9 @@ export const deleteTask = (db, id) => {
     const sql = `UPDATE tasks SET deleted_at = NOW(), deleted = true WHERE id = $1`;
     db.query(sql, [id], (err) => {
       if (err) {
-        reject(err);
+        return reject(err);
       } else {
-        resolve({ success: true, message: 'Task deleted successfully' });
+        return resolve({ success: true, message: 'Task deleted successfully' });
       }
     });
   });

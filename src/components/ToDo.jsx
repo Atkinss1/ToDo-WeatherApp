@@ -33,7 +33,7 @@ export const ToDo = ({ task }) => {
 							<p className={'task'}>you want to delete this task?</p>
 						</div>
 					</div>
-					<div className={'Todo'}>
+					<div className={'Todo-icon'}>
 						<FontAwesomeIcon
 							onClick={() => handleDelete(task.id)}
 							icon={faCircleCheck}
@@ -65,7 +65,7 @@ export const ToDo = ({ task }) => {
 							</p>
 						</div>
 					</div>
-					<div className={`Todo`}>
+					<div className={`Todo-icon`}>
 						<FontAwesomeIcon
 							icon={faPenToSquare}
 							className={'edit-icon'}

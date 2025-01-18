@@ -14,9 +14,11 @@ export const addTaskRoute = (client) => {
     try{
       const { task, description } = req.body;
       const response = await addTask(client, task, description);
-      if (response) {
-        res.status(201).json(response);
+      if (!response) {
+        return res.status(400).json({ error: 'Failed to add task' });
       }
+      console.log('taskRoute', response);
+      return res.status(201).json(response);
     } catch(error) {
       res.status(500).json({ error: `Failed to add task: ${error}`});
     }

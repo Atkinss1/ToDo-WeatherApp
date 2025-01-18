@@ -26,7 +26,7 @@ export const TodosContextProvider = ({ children }) => {
       !data ? setTodos([]) : setTodos(data);
   
 		} catch (error) {
-			console.error('Failed to fetch tasks:', error);
+			throw new Error(`Failed to fetch tasks:, ${error.message}`);
 		}
 	};
 
@@ -39,19 +39,25 @@ export const TodosContextProvider = ({ children }) => {
 	const addTodo = async (title, description) => {
 		try {
 
-      const newTodo = {
-				id: uuidv4(),
-				title,
-				description,
-				completed: false,
-				isEditing: false,
-			};
+      // const newTodo = {
+			// 	id: uuidv4(),
+			// 	title,
+			// 	description,
+			// 	completed: false,
+			// 	isEditing: false,
+			// };
       
-      await todosService.addTaskAPI(title, description);
+      const newTodo = await todosService.addTaskAPI(title, description);
+
+      if (!newTodo) {
+        console.log('error receiving response from API');
+        return;
+      }
+
 			setTodos([ ...todos, newTodo ]);
 
 		} catch (error) {
-			throw new Error('Failed to add todo:', error);
+			throw new Error(`Failed to add todo:, ${error.message}`);
 		}
 	};
 
@@ -68,7 +74,7 @@ export const TodosContextProvider = ({ children }) => {
 			setTodos(todos.filter((todo) => todo.id !== id));
 
 		} catch (error) {
-			throw new Error('Failed to delete todo:', error);
+			throw new Error(`Failed to delete todo:, ${error.message}`);
 		}
 	};
 
@@ -111,14 +117,10 @@ export const TodosContextProvider = ({ children }) => {
 			);
 
 		} catch (error) {
-			throw new Error('Failed to edit todo:', error);
+			throw new Error(`Failed to edit todo:, ${error.message}`);
 		}
 	};
-  /**
-   * used to toggle the isEditing property of the todo item with the given id if the user didn't make any changes
-   * @param {number} id - id of the todo item to be toggled
-   */
-
+  
 	/**
 	 *
 	 * @param {number} id - id of the todo item to be toggled
@@ -129,13 +131,12 @@ export const TodosContextProvider = ({ children }) => {
       
       await todosService.toggleCompleteAPI(id);
 			setTodos(
-				todos.map((todo) => {
-					todo.id === id ? { ...todo, completed: !todo.completed } : todo;
-				})
+        todos.map((todo) =>  
+					todo.id === id ? { ...todo, completed: !todo.completed } : todo)
 			);
 
 		} catch (error) {
-			throw new Error('Failed to toggle complete:', error);
+			throw new Error(`Failed to toggle complete:, ${error.message}`);
 		}
 	};
 

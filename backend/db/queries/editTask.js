@@ -11,9 +11,9 @@ export const editTask = (db, id, newTask, newDescription) => {
     const values = [newTask, newDescription, id];
     db.query(sql, values, (err) => {
       if (err) {
-        reject(err);
+        return reject(err);
       } else {
-        resolve({'success': true, 'message': 'Task updated successfully' });
+        return resolve({'success': true, 'message': 'Task updated successfully' });
       }
     });
   });

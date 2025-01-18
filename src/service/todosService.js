@@ -11,26 +11,27 @@ const getTasksAPI = async () => {
 		}
 
 		return response.json();
+    
 	} catch (error) {
-		console.error('Failed to fetch tasks: ', error);
+		throw new Error(`Failed to fetch tasks:, ${error.message}`);
 	}
 };
 
 const deleteTaskAPI = async (id) => {
 	try {
 		const response = await fetch(`${apiURL}/deleteTask`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id })
-    });
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ id }),
+		});
 
 		if (!response.ok) {
 			throw new Error(errorMessage(response.status));
 		}
 	} catch (error) {
-		console.error('Failed to delete todo: ', error);
+		throw new Error(`Failed to delete todo:, ${error.message}`);
 	}
 };
 
@@ -47,14 +48,16 @@ const addTaskAPI = async (title, description) => {
 		if (!response.ok) {
 			throw new Error(errorMessage(response.status));
 		}
+
+		const data = await response.json();
+		return data;
 	} catch (error) {
-		console.error('Failed to Add todo: ', error);
+		throw new Error(`Failed to Add todo:, ${error.message}`);
 	}
 };
 
 const editTaskAPI = async (id, newTask, newDescription) => {
 	try {
-
 		const response = await fetch(`${apiURL}/editTask`, {
 			method: 'PUT',
 			headers: {
@@ -67,31 +70,33 @@ const editTaskAPI = async (id, newTask, newDescription) => {
 			throw new Error(errorMessage(response.status));
 		}
 	} catch (error) {
-		console.error('Failed to edit todo: ', error);
+		throw new Error(`Failed to edit todo:, ${error.message}`);
 	}
 };
 
-
 const toggleCompleteAPI = async (id) => {
-  const response = await fetch(`${apiURL}/toggleComplete`, {
-		method: 'PUT',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({ id }),
-	});
-	if (!response.ok) {
-		const message = `An error has occured: ${response.status}`;
-		throw new Error(message);
+	try {
+		const response = await fetch(`${apiURL}/toggleComplete`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ id }),
+		});
+		if (!response.ok) {
+			throw new Error(errorMessage(response.status));
+		}
+	} catch (error) {
+		throw new Error(`Failed to complete todo:, ${error.message}`);
 	}
-}
+};
 
 const todosService = {
 	getTasksAPI,
 	deleteTaskAPI,
 	addTaskAPI,
 	editTaskAPI,
-  toggleCompleteAPI
+	toggleCompleteAPI,
 };
 
 export default todosService;
