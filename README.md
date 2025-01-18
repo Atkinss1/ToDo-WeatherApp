@@ -17,6 +17,11 @@ git clone git@github.com:Atkinss1/ToDo.git
 cd ToDo
 ```
 
+1. Navigate to the `backend/db` folder:
+   ```bash
+   cd backend/db
+   ```
+
 ### 2. Create the PostgreSQL Database
 1. Open a PostgreSQL client (e.g., `psql`).
 2. Create a new database:
@@ -29,10 +34,7 @@ cd ToDo
    ```
 
 ### 3. Run the Database Schema and Seeds
-1. Navigate to the `backend/db` folder:
-   ```bash
-   cd backend/db
-   ```
+
 1. Run the schema and seed files in your PostgreSQL client:
    ```sql
    \i schema/schema.sql
@@ -41,15 +43,13 @@ cd ToDo
 
 ### 4. Update Database Credentials
 1. Go to the `backend` folder.
-2. Open the `server.js` file.
+2. create a `.env` file.
 3. Update the PostgreSQL credentials with your database configuration:
    ```javascript
-   const client = new Client({
-     host: 'localhost',
-     user: 'your-username',
-     password: 'your-password'
-     database: 'todo',
-   });
+   VITE_HOST=localhost
+   VITE_USER='your user'
+   VITE_PASSWORD='your password'
+   VITE_DATABASE=todo
    ```
 
 ---
@@ -60,7 +60,7 @@ cd ToDo
    npm install
    ```
 
-2. Start both the front-end and back-end simultaneously:
+2. Navigate back to the Todo root directory and start both the front-end and back-end simultaneously:
    ```bash
    npm run start:all
    ```
