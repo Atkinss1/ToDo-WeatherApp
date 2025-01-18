@@ -42,7 +42,7 @@ cd ToDo
    ```
 
 ### 4. Update Database Credentials
-1. Go to the `backend` folder.
+1. Navigate to the `backend` folder.
 2. create a `.env` file.
 3. Update the PostgreSQL credentials with your database configuration:
    ```javascript
