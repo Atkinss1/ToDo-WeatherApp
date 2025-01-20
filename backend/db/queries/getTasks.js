@@ -5,13 +5,12 @@
  */
 export const getTasks = (db) => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT * FROM tasks`;
+    const sql = `SELECT * FROM tasks WHERE deleted = false`;
     db.query(sql, (err, results) => {
       if (err) {
         console.log('Failed to fetch tasks:', err);
         return reject(err);
       }
-      console.log('Query results', results.rows);
       if (results.rows.length > 0) {
         return resolve(results.rows);
       }
