@@ -35,7 +35,6 @@ body {
   flex: 2;
   position: relative;
   height: auto;
-  background: green;
 }
 
 .Weather-App {
@@ -51,7 +50,6 @@ body {
   flex: 1;
   height: auto;
   position: relative;
-  background: yellow;
 }
 
 .Todo-App {
