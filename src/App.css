@@ -24,10 +24,40 @@ body {
   justify-content: center;
 }
 
-.App {
+.App-Wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.Weather-App-Wrapper {
+  flex: 2;
+  position: relative;
+  height: auto;
+  background: green;
+}
+
+.Weather-App {
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Todo-App-Wrapper {
+  flex: 1;
+  height: auto;
+  position: relative;
+  background: yellow;
+}
+
+.Todo-App {
   text-align: center;
-  width: 50%;
-  margin: auto;
+  min-height: 100vh;
+  margin-inline: var(--space-2xs);
 }
 
 .TodoWrapper h1 {
@@ -158,4 +188,23 @@ body {
 .checkMark-icon,
 .cancel-delete {
   cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .App-Wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .Weather-App-Wrapper,
+  .Todo-App-Wrapper {
+    flex: none;
+    width: 100%;
+  }
+  
+  .Weather-App,
+  .Todo-App {
+    height: auto;
+    min-height: 50vh;
+  }
 }
