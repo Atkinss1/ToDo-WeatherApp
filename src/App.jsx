@@ -1,12 +1,13 @@
 import './App.css';
-import { ToDoWrapper } from './components/ToDoWrapper';
+import { ToDoWrapper } from './components/todo/ToDoWrapper';
+import { WeatherWrapper } from './components/weather/WeatherWrapper';
 
 function App() {
 	return (
 		<div className='App-Wrapper'>
 			<div className='Weather-App-Wrapper'>
 				<div className='Weather-App'>
-					<p>weather app</p>
+					<WeatherWrapper />
 				</div>
 			</div>
 

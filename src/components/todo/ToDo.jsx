@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useTodosContext } from '../state/hooks/TodosContext';
+import { useTodosContext } from '../../state/hooks/TodosContext';
 
 /**
  * ToDo component
