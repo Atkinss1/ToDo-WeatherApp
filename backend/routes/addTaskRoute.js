@@ -1,5 +1,6 @@
 import express from 'express';
 import { addTask } from '../db/queries/addTask.js';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * listens for POST requests at /addTask and passes the task to addTask
@@ -12,8 +13,8 @@ export const addTaskRoute = (client) => {
   
   router.post('/', async (req, res) => {
     try{
-      const { task, description } = req.body;
-      const response = await addTask(client, task, description);
+      const { title, description } = req.body;
+      const response = await addTask(client, title, description);
       if (!response) {
         return res.status(400).json({ error: 'Failed to add task' });
       }

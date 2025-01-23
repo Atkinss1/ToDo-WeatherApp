@@ -1,6 +1,3 @@
-import e from "express";
-import { resolveConfig } from "vite";
-
 /**
  * 
  * @param {client} db - database client 
@@ -8,10 +5,10 @@ import { resolveConfig } from "vite";
  * @param {string} description - description of the new task
  * @returns {Promise} - returns a promise containing success message
  */
-export const addTask = (db, task, description) => {
+export const addTask = (db, title, description) => {
   return new Promise((resolve, reject) => {
     const sql = 'INSERT INTO tasks (title, description) VALUES ($1, $2) RETURNING *';
-    db.query(sql, [task, description], (err, results) => {
+    db.query(sql, [title, description], (err, results) => {
       if (err) {
         console.log('error executing sql: ', err);
         return reject(err);

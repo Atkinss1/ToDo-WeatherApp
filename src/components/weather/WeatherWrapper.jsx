@@ -1,10 +1,12 @@
+import { WeatherForm } from "./WeatherForm"
+
 export const WeatherWrapper = () => {
 
   
 
   return (
-    <div className="Weather-Wrapper">
-      <p>Weather App Here</p>
+    <div className="TodoWrapper">
+      <WeatherForm />
     </div>
   )
 }

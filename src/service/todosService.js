@@ -42,7 +42,7 @@ const addTaskAPI = async (title, description) => {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ task: title, description }),
+			body: JSON.stringify({ title, description }),
 		});
 
 		if (!response.ok) {
