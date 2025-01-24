@@ -1,18 +1,21 @@
 import './App.css';
 import { ToDoWrapper } from './components/todo/ToDoWrapper';
-import { WeatherWrapper } from './components/weather/WeatherWrapper';
+import { WeatherForm } from './components/weather/WeatherForm';
+import { WeatherContextProvider } from './state/WeatherContextProvider';
 
 function App() {
 	return (
-		<div className='App-Wrapper'>
-			<div className='Weather-App-Wrapper'>
-				<div className='Weather-App'>
-					<WeatherWrapper />
+		<div className='app-wrapper'>
+			<WeatherContextProvider>
+				<div className='weather-app-wrapper'>
+					<div className='weather-app'>
+						<WeatherForm />
+					</div>
 				</div>
-			</div>
+			</WeatherContextProvider>
 
-			<div className='Todo-App-Wrapper'>
-				<div className='Todo-App'>
+			<div className='todo-app-wrapper'>
+				<div className='todo-App'>
 					<ToDoWrapper />
 				</div>
 			</div>

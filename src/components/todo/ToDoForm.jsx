@@ -1,5 +1,6 @@
+import '@styles/todo.css';
 import { useEffect, useRef, useState } from 'react';
-import { useTodosContext } from '../../state/hooks/todosContext';
+import { useTodosContext } from '@state/hooks/todosContext';
 
 /**
  * ToDoForm
@@ -26,7 +27,7 @@ export const ToDoForm = () => {
 
 	return (
 		<form
-			className='TodoForm'
+			className='todo-form'
 			onSubmit={handleSubmit}
 		>
 			<input

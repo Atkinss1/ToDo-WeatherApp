@@ -1,0 +1,166 @@
+/* TODO APP */
+
+.todo-app-wrapper {
+  flex: 1.25;
+  height: auto;
+  position: relative;
+}
+
+.todo-App {
+  text-align: center;
+  min-height: 100vh;
+  margin-inline: var(--space-2xs);
+}
+
+.todo-wrapper h1 {
+  color: #fff;
+  font-size: var(--space-s-2xl);
+}
+
+.dropdown-menu {
+  max-width: 100%;
+  margin: var(--space-s);
+  box-sizing: border-box;
+}
+
+.dropdown-label {
+  color: white;
+  margin-right: var(--space-xs);
+  font-size: var(--space-2xs-l);
+}
+
+#dropdown {
+  max-width: 100%;
+  background: #1A1A40;
+  color: white;
+  border: white;
+  font-size: var(--space-2xs-m);
+  margin-inline: auto;
+}
+
+.todo-wrapper {
+  width: 100%;
+  margin-block: var(--space-xs-l);
+  background: #1A1A40;
+  border-radius: 5px;
+  padding: var(--space-xs-l);
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: var(--space-s);
+}
+
+.todo-input {
+  background: none;
+  border: 1px solid #8758ff;
+  font-size: var(--space-xs-l);
+  color: white;
+  width: 100%;
+  margin: var(--space-3xs-xs);
+}
+
+.todo-input::placeholder {
+  color: #ffffff4d;
+  white-space: nowrap;
+  font-size: var(--space-2xs-l);
+}
+
+.todo-container {
+  padding: var(--space-2xs);
+}
+
+.todo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #8758ff;
+  font-size: var(--space-2xs-l);
+  margin-left: var(--space-3xs-s);
+  color: #fff;
+  border-radius: 5px;
+  padding-inline: var(--space-3xs-s);
+  max-width: 100%;
+}
+
+.todo-icon {
+  margin-left: var(--space-3xs-s);
+}
+
+.todo-details-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+}
+
+/** TODO TEXT CONTAINER **/
+
+.todo-details {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0 auto 0 auto;
+  max-width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.task {
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.fa-trash,
+.cancel-delete {
+  margin-left: var(--space-2xs);
+
+}
+/** ----------------- **/
+
+.incompleted {
+  color: #fff;
+  cursor: pointer;
+}
+
+.completed {
+  color: #c5aeff;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+/* TODO APP BUTTONS*/
+
+.todo-btn {
+  background: #8758ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-block: var(--space-s);
+  width: calc(60% - var(--space-3xs-s));
+  line-height: var(--space-s-2xl);
+  font-size: var(--space-2xs-l);
+}
+
+.edit-icon,
+.delete-icon,
+.checkMark-icon,
+.cancel-delete {
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+
+  .todo-app-wrapper {
+    flex: none;
+    width: 100%;
+  }
+
+  .todo-App {
+    height: auto;
+    min-height: 50vh;
+  }
+}

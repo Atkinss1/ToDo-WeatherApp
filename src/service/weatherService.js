@@ -9,7 +9,7 @@ const getWeatherByCity = async (cityName) => {
 	);
 
 	const response = await data.json();
-	console.log(response);
+	return response;
 };
 
 const weatherService = {

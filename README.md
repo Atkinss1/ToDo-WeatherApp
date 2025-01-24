@@ -57,7 +57,7 @@ cd ToDo
 This application is using openWeatherAPI as an additional feature. To get your API key
 you will have to sign up at [www.openweathermap.org/](https://home.openweathermap.org/users/sign_up)
 
-1. Navigate to /Todo and create a `'.env'` file.
+1. Navigate to /todo and create a `'.env'` file.
 2. Paste your API key under the variable `VITE_WEATHER_APIKEY={apiKey}`.
 
 ---
@@ -68,7 +68,7 @@ you will have to sign up at [www.openweathermap.org/](https://home.openweatherma
    npm install
    ```
 
-2. Navigate back to the Todo root directory and start both the front-end and back-end simultaneously:
+2. Navigate back to the todo root directory and start both the front-end and back-end simultaneously:
    ```bash
    npm run start:all
    ```

@@ -29,15 +29,15 @@ describe('<ToDo />', () => {
 			);
 
 			// Check if the todo container is rendered
-			cy.get('.Todo').first().should('exist');
-			cy.get('.Todo-details-wrapper').should('exist');
+			cy.get('.todo').first().should('exist');
+			cy.get('.todo-details-wrapper').should('exist');
 
 			// Check if the task is rendered
-			cy.get('.Todo-details').should('exist');
+			cy.get('.todo-details').should('exist');
 			cy.get('.task').first().should('have.text', 'Test Task');
 
 			// Check if the task is marked as completed
-			cy.get('.Todo-details p')
+			cy.get('.todo-details p')
 				.first()
 				.click()
 				.then(() => {
@@ -46,11 +46,11 @@ describe('<ToDo />', () => {
 				});
 
 			// Check if the description is rendered
-			cy.get('.Todo').last().should('exist');
+			cy.get('.todo').last().should('exist');
 			cy.get('.task').last().should('have.text', 'Test Description');
 
 			// Check if the task is marked as completed when description is clicked
-			cy.get('.Todo-details p')
+			cy.get('.todo-details p')
 				.last()
 				.click()
 				.then(() => {

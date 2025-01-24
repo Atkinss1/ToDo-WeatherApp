@@ -1,20 +1,29 @@
+import '@styles/weather.css';
 import { useState } from 'react';
-import weatherService from '../../service/weatherService';
+import { useWeatherContext } from '@state/hooks/weatherContext';
 
 export const WeatherForm = () => {
 	const [city, setCity] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!city) return;
-    weatherService.getWeatherByCity(city);
-  }
+	const { getWeatherByCity, weather } = useWeatherContext();
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		if (!city) return;
+		getWeatherByCity(city);
+    setCity('');
+	};
 
 	return (
-		<div className='Weather-Form'>
+		<div className='weather-form'>
+			{weather ? (
+				<h2 className='city-title'>{weather.name}</h2>
+			) : (
+				(null)
+			)}
 			<form
-        name='weatherForm'
-				className='TodoForm'
+				name='weatherForm'
+				className='todo-form'
 				onSubmit={handleSubmit}
 			>
 				<input
@@ -26,7 +35,7 @@ export const WeatherForm = () => {
 				/>
 				<button
 					type='submit'
-					className='todo-btn'
+					className='weather-btn'
 				>
 					GET WEATHER CALL
 				</button>

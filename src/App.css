@@ -24,185 +24,28 @@ body {
   justify-content: center;
 }
 
-.App-Wrapper {
+.app-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
 }
 
-.Weather-App-Wrapper {
-  flex: 2;
-  position: relative;
-  height: auto;
-}
-
-.Weather-App {
-  display: flex;
-  position: sticky;
-  top: 0;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.Todo-App-Wrapper {
-  flex: 1;
-  height: auto;
-  position: relative;
-}
-
-.Todo-App {
-  text-align: center;
-  min-height: 100vh;
-  margin-inline: var(--space-2xs);
-}
-
-.TodoWrapper h1 {
-  color: #fff;
-  font-size: var(--space-s-2xl);
-}
-
-.dropdown-menu {
-  max-width: 100%;
-  margin: var(--space-s);
-  box-sizing: border-box;
-}
-
-.dropdown-label {
-  color: white;
-  margin-right: var(--space-xs);
-  font-size: var(--space-2xs-l);
-}
-
-#dropdown {
-  max-width: 100%;
-  background: #1A1A40;
-  color: white;
-  border: white;
-  font-size: var(--space-2xs-m);
-  margin-inline: auto;
-}
-
-.TodoWrapper {
-  width: 100%;
-  margin-block: var(--space-xs-l);
-  background: #1A1A40;
-  border-radius: 5px;
-  padding: var(--space-xs-l);
-}
-
-.TodoForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  margin: var(--space-s);
-}
-
-.todo-input {
-  background: none;
-  border: 1px solid #8758ff;
-  font-size: var(--space-xs-l);
-  color: white;
-  width: 100%;
-  margin: var(--space-3xs-xs);
-}
-
-.todo-input::placeholder {
-  color: #ffffff4d;
-  white-space: nowrap;
-  font-size: var(--space-2xs-l);
-}
-
-.todo-btn {
-  background: #8758ff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-block: var(--space-s);
-  width: calc(60% - var(--space-3xs-s));
-  line-height: var(--space-s-2xl);
-  font-size: var(--space-2xs-l);
-}
-
-.TodoContainer {
-  padding: var(--space-2xs);
-}
-
-.Todo {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: #8758ff;
-  color: #fff;
-  border-radius: 5px;
-  padding-inline: var(--space-3xs-s);
-  max-width: 100%;
-}
-
-.Todo-icon {
-  margin-left: var(--space-3xs-s);
-}
-
-.Todo-details-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: var(--space-2xs-l);
-  width: 50%;
-}
-
-.Todo-details {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.task {
-  cursor: pointer;
-}
-
-.fa-trash,
-.cancel-delete {
-  margin-left: var(--space-2xs);
-  
-}
-
-.incompleted {
-  color: #fff;
-  cursor: pointer;
-}
-
-.completed {
-  color: #c5aeff;
-  text-decoration: line-through;
-  cursor: pointer;
-}
-
-.edit-icon,
-.delete-icon,
-.checkMark-icon,
-.cancel-delete {
-  cursor: pointer;
-}
-
-@media (max-width: 576px) {
-  .App-Wrapper {
+/* @media (max-width: 576px) {
+  .app-wrapper {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .Weather-App-Wrapper,
-  .Todo-App-Wrapper {
+  .weather-app-wrapper,
+  .todo-app-wrapper {
     flex: none;
     width: 100%;
   }
   
-  .Weather-App,
-  .Todo-App {
+  .weather-app,
+  .todo-App {
     height: auto;
     min-height: 50vh;
   }
-}
+} */

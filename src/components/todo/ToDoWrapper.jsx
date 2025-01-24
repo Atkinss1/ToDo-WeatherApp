@@ -1,5 +1,6 @@
+import '@styles/todo.css';
 import { useState } from 'react';
-import { useTodosContext } from '../../state/hooks/todosContext';
+import { useTodosContext } from '@state/hooks/todosContext';
 import { DropdownMenu } from './DropdownMenu';
 import { EditToDoForm } from './EditToDoForm';
 import { ToDo } from './ToDo';
@@ -29,7 +30,7 @@ export const ToDoWrapper = () => {
 	});
 
 	return (
-		<div className='TodoWrapper'>
+		<div className='todo-wrapper'>
 			<h1>ToDo List</h1>
 			<DropdownMenu onFilterChange={handleFilterChange} />
 			<ToDoForm />
@@ -44,7 +45,7 @@ export const ToDoWrapper = () => {
 				) : (
 					<div
 						key={index}
-						className='TodoContainer'
+						className='todo-container'
 					>
 						<ToDo task={todo} />
 					</div>

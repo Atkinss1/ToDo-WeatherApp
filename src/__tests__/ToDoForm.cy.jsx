@@ -14,7 +14,7 @@ describe('<ToDoForm />', () => {
 		);
 
 		// Check if the form is rendered
-		cy.get('.TodoForm').should('exist');
+		cy.get('.todo-form').should('exist');
 
 		// Check if the input fields are rendered
 		cy.get('.todo-input').should('have.length', 2);

@@ -13,13 +13,13 @@ describe('<ToDoWrapper />', () => {
 			);
 
 			// Check if the ToDoWrapper component is rendered
-			cy.get('.TodoWrapper').should('exist');
+			cy.get('.todo-wrapper').should('exist');
 
 			// Check if the ToDoForm component is rendered
-			cy.get('.TodoForm').should('exist');
+			cy.get('.todo-form').should('exist');
 
 			// Check if the ToDo component is rendered
-			cy.get('.Todo').should('exist');
+			cy.get('.todo').should('exist');
 
 			// Check if the EditToDoForm component is not rendered
 			cy.get('.EditToDoForm').should('not.exist');

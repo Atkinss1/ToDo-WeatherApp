@@ -1,6 +1,7 @@
+import '@styles/todo.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useTodosContext } from '../../state/hooks/todosContext';
+import { useTodosContext } from '@state/hooks/todosContext';
 
 /**
  * EditToDoForm
@@ -11,24 +12,24 @@ import { useTodosContext } from '../../state/hooks/todosContext';
 export const EditToDoForm = ({ task }) => {
 	const { editTask, editTodo } = useTodosContext();
 
-  const [initialTitle, setInitialTite] = useState(task.title);
-  const [initialDesc, setInitialDesc] = useState(task.description);
+	const [initialTitle, setInitialTite] = useState(task.title);
+	const [initialDesc, setInitialDesc] = useState(task.description);
 	const [title, setTitle] = useState(task.title);
 	const [description, setDescription] = useState(task.description);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!title) return;
-    if (initialTitle === title && initialDesc === description) {
-      editTodo(task.id);
-      return;
-    }
-    
+		if (initialTitle === title && initialDesc === description) {
+			editTodo(task.id);
+			return;
+		}
+
 		editTask(task.id, title, description);
 	};
 	return (
 		<form
-			className='TodoForm'
+			className='todo-form'
 			onSubmit={handleSubmit}
 		>
 			<input
