@@ -52,6 +52,14 @@ cd ToDo
    VITE_DATABASE=todo
    ```
 
+### 5. WeatherAPI credentials
+
+This application is using openWeatherAPI as an additional feature. To get your API key
+you will have to sign up at [www.openweathermap.org/](https://home.openweathermap.org/users/sign_up)
+
+1. Navigate to /Todo and create a `'.env'` file.
+2. Paste your API key under the variable `VITE_WEATHER_APIKEY={apiKey}`.
+
 ---
 
 ## Running the Application
@@ -73,6 +81,7 @@ The application should now be running on your local machine.
 - Ensure PostgreSQL is running.
 - Check database connection details.
 - Verify correct schema and seed data setup.
+- Verify correct apiKeys are added in your `.env` files.
 
 Happy coding! 🚀
 
