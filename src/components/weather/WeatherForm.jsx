@@ -5,7 +5,7 @@ import { useWeatherContext } from '@state/hooks/weatherContext';
 export const WeatherForm = () => {
 	const [city, setCity] = useState('');
 
-	const { getWeatherByCity, weather } = useWeatherContext();
+	const { getWeatherByCity } = useWeatherContext();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -15,19 +15,14 @@ export const WeatherForm = () => {
 	};
 
 	return (
-		<div className='weather-form'>
-			{weather ? (
-				<h2 className='city-title'>{weather.name}</h2>
-			) : (
-				(null)
-			)}
+		<div className='weather-container'>
 			<form
 				name='weatherForm'
-				className='todo-form'
+				className='weather-form'
 				onSubmit={handleSubmit}
 			>
 				<input
-					className='todo-input'
+					className='weather-input'
 					type='text'
 					value={city}
 					placeholder='Enter city'

@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import weatherService from '../service/weatherService';
+import weatherService from '@service/weatherService';
 import PropTypes from 'prop-types';
 
 
