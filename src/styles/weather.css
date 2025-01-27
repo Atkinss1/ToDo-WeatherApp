@@ -15,6 +15,7 @@
   justify-content: start;
   align-items: center;
   min-height: 50vh;
+  height: auto;
   margin-inline: var(--space-s);
 }
 
@@ -184,9 +185,11 @@
     flex: none;
     width: 100%;
   }
+}
 
-  .weather-app {
-    height: auto;
-    min-height: 50vh;
+@media (max-width: 1600px) {
+  .widget-info {
+    flex-direction: column;
+    gap: var(--space-l);
   }
 }
