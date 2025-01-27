@@ -12,7 +12,7 @@
   flex-direction: column;
   position: sticky;
   top: 0;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: 100vh;
   margin-inline: var(--space-s);
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100%;
+  width: 100%;
   margin: var(--space-s);
 }
 
@@ -30,24 +30,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100%;
+  width: 75%;
   margin: var(--space-s);
+  gap: var(--space-s);
 }
 
 .weather-input {
   background: linear-gradient(274deg, rgba(135, 88, 255, 1) 0%, rgba(157, 118, 203, 1) 100%);
-  border-radius: 5px;
+  background-image: url('../../public/icons8-search-64.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 12px 20px 12px var(--space-l-2xl);
+  border-radius: 40px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: var(--space-xs-l);
+  font-size: var(--space-2xs-l);
   color: white;
   width: 100%;
   margin: var(--space-3xs-xs);
 }
 
+.weather-input::placeholder {
+  color: rgb(192, 189, 189);
+}
+
 .weather-btn {
+  max-width: 50%;
+  width: 200px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 5px;
   background: linear-gradient(274deg, rgba(135, 88, 255, 1) 0%, rgba(157, 118, 203, 1) 100%);
   border-radius: 5px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -55,6 +69,7 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
+  font-size: var(--fluid-11-20);
 }
 
 .weather-info {
@@ -69,6 +84,13 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   font-size: var(--space-xs-l);
+}
+
+.no-weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ----------------- */

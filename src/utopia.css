@@ -2,7 +2,7 @@
 :root {
   /* !! Spacing variables */
   
-  /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,2560,20,1.25,5,2,&s=0.75|0.5|0,1.5|2|3|4|6,xs-l|s-2xl|2xs-l|3xs-xs|s-m|3xs-s&g=s,l,xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,2560,20,1.25,5,2,&s=0.75|0.5,1.5|2|3|4|6,xs-l|s-2xl|2xs-l|3xs-xs|s-m|3xs-s|l-xl&g=s,l,xl,12 */
 
     /* Space 3xs: 0px → 0px */
       --space-3xs: clamp(0rem, 0rem + 0vw, 0rem);
@@ -54,6 +54,8 @@
       --space-s-m: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.875rem);
       /* Space 3xs-s: 0px → 20px */
       --space-3xs-s: clamp(0rem, -0.1786rem + 0.8929vw, 1.25rem);
+      /* Space l-2xl: 36px → 80px */
+      --space-l-2xl: clamp(2.25rem, 1.8571rem + 1.9643vw, 5rem);
 
   /* !! Font sizing variables */
 
@@ -70,9 +72,9 @@
     --step-5: clamp(2.7994rem, 2.6543rem + 0.7252vw, 3.8147rem);
 
     
-    /* @link https://utopia.fyi/clamp/calculator?a=320,1240,11—30 */
-    
+    /* @link https://utopia.fyi/clamp/calculator?a=320,1240,11—30|11—20 */
+
     --fluid-11-30: clamp(0.6875rem, 0.2745rem + 2.0652vw, 1.875rem);
-      
+    --fluid-11-20: clamp(0.6875rem, 0.4918rem + 0.9783vw, 1.25rem);
         
 }

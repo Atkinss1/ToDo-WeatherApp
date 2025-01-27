@@ -1,12 +1,11 @@
-import React from 'react'
 import { useWeatherContext } from '@state/hooks/weatherContext';
+import React from 'react';
 
 export const WeatherDetails = () => {
-
-  const { weather } = useWeatherContext();
+	const { weather } = useWeatherContext();
 	const windSpeed = (weather?.wind.speed * 3.6).toFixed(2);
 
-  return (
+	return (
 		<div className='weather-info'>
 			{weather ? (
 				<div className='weather-info-wrapper'>
@@ -23,8 +22,11 @@ export const WeatherDetails = () => {
 					</div>
 				</div>
 			) : (
-				<p>Enter a city to get weather information</p>
+				<div className='no-weather-info'>
+					<p>Enter a city to get weather</p>
+					<p>information</p>
+				</div>
 			)}
 		</div>
 	);
-}
+};

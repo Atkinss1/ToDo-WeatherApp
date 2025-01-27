@@ -25,14 +25,14 @@ export const WeatherForm = () => {
 					className='weather-input'
 					type='text'
 					value={city}
-					placeholder='Enter city'
+					placeholder='Search for your preferred city'
 					onChange={(e) => setCity(e.target.value)}
 				/>
 				<button
 					type='submit'
 					className='weather-btn'
 				>
-					GET WEATHER CALL
+					GET WEATHER
 				</button>
 			</form>
 		</div>
