@@ -9,7 +9,8 @@ function App() {
     main: {
       temp: 10,
       humidity: 80,
-      pressure: 1010
+      pressure: 1010,
+      feels_like: 10
     },
     wind: {
       speed: 5,

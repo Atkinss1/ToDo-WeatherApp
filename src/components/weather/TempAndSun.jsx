@@ -11,7 +11,7 @@ export const TempAndSun = ({ mockWeather }) => {
 					{Math.floor(mockWeather.main.temp)}&deg;C
 				</div>
 				<div className='feels-like-temp'>
-					<p>Feels Like:</p> {mockWeather.main.feels_like}&deg;C
+					<p>Feels Like: &nbsp;{mockWeather.main.feels_like}&deg;C</p>
 				</div>
 			</div>
 			<div className='sun-info'>
