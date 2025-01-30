@@ -1,9 +1,10 @@
 /* WEATHER APP */
 
 .weather-app-wrapper {
+  display: flex;
+  justify-content: start;
 	flex: 2;
-	position: relative;
-	height: auto;
+	height: 100%;
 	flex-direction: column;
 }
 
@@ -16,6 +17,7 @@
 	align-items: center;
 	min-height: 50vh;
 	height: auto;
+  width: 100%;
 	margin-inline: var(--space-s);
 }
 
@@ -89,7 +91,7 @@
   max-height: 90vh;
 	min-height: 50vh;
 	padding: 20px;
-  margin: var(--space-s);
+  /* margin: var(--space-s); */
   box-sizing: border-box;
 	background: linear-gradient(
 		274deg,
@@ -236,12 +238,11 @@
 }
 
 /* ----------------- */
-
-@media (max-width: 576px) {
-	.weather-app-wrapper {
-		flex: none;
-		width: 100%;
-	}
+@media (max-width: 595px) {
+  .widget-info {
+    flex-direction: column;
+    min-width: 100%;
+  }
 }
 
 @media (max-width: 1600px) {

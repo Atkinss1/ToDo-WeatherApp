@@ -27,25 +27,13 @@ body {
 .app-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   flex-wrap: wrap;
 }
 
-/* @media (max-width: 576px) {
+@media (max-width: 1067px) {
   .app-wrapper {
     flex-direction: column;
-    align-items: stretch;
   }
-
-  .weather-app-wrapper,
-  .todo-app-wrapper {
-    flex: none;
-    width: 100%;
-  }
-  
-  .weather-app,
-  .todo-App {
-    height: auto;
-    min-height: 50vh;
-  }
-} */
+}
