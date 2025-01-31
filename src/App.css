@@ -29,7 +29,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
 }
 
 @media (max-width: 1067px) {
