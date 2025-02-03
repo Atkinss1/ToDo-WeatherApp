@@ -11,5 +11,5 @@ export default {
       testEnvironment: 'jest-environment-jsdom',
       testMatch: ['<rootDir>/src/**/*.test.js'],
     },
-  ]
-}
+  ],
+};

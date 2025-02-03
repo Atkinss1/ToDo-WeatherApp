@@ -1,7 +1,6 @@
 import { useWeatherContext } from '@state/hooks/weatherContext';
 
 export const WeatherIcon = ({ mockWeather }) => {
-
   const { weather } = useWeatherContext();
 
   return (

@@ -1,13 +1,18 @@
-import js from '@eslint/js'
-import globals, { jest } from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import js from '@eslint/js';
+import globals from 'globals';
+import cypress from 'eslint-plugin-cypress';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+
+const { jest } = globals;
 
 export default [
-  { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    ignores: ['dist', 'cypress/**', 'cypress.config.js', 'src/__tests__'],
+  },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -24,7 +29,6 @@ export default [
       'react-refresh': reactRefresh,
       cypress,
       jest,
-      env: { "jest/globals": true },
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -38,4 +42,4 @@ export default [
       ],
     },
   },
-]
+];

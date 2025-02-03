@@ -1,4 +1,4 @@
-import express  from 'express';
+import express from 'express';
 import { client } from './db/index.js';
 import { setupMiddleware } from './middleware/index.js';
 import initializeRoutes from './routes/index.js';

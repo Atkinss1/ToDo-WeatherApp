@@ -16,6 +16,6 @@ export const getTasks = (db) => {
       }
       console.log('No tasks found');
       return resolve([]);
-    })
+    });
   });
 };

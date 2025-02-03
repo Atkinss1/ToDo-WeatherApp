@@ -32,7 +32,7 @@
 
 #dropdown {
   max-width: 100%;
-  background: #1A1A40;
+  background: #1a1a40;
   color: white;
   border: white;
   font-size: var(--space-2xs-m);
@@ -42,7 +42,7 @@
 .todo-wrapper {
   width: 100%;
   margin-block: var(--space-xs-l);
-  background: #1A1A40;
+  background: #1a1a40;
   border-radius: 5px;
   padding: var(--space-xs-l);
 }
@@ -118,7 +118,6 @@
 .fa-trash,
 .cancel-delete {
   margin-left: var(--space-2xs);
-
 }
 /** ----------------- **/
 
@@ -154,7 +153,6 @@
 }
 
 @media (max-width: 576px) {
-
   .todo-app-wrapper {
     flex: none;
     width: 100%;

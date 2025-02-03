@@ -6,8 +6,8 @@ import { taskCompletedRouter } from './toggleTaskCompleted.js';
 
 export default (app, client) => {
   app.use('/getTasks', fetchTasksRoute(client));
-	app.use('/addTask', addTaskRoute(client));
-	app.use('/deleteTask', deleteTaskRoute(client));
-	app.use('/editTask', editTaskRouter(client));
-	app.use('/toggleComplete', taskCompletedRouter(client));
+  app.use('/addTask', addTaskRoute(client));
+  app.use('/deleteTask', deleteTaskRoute(client));
+  app.use('/editTask', editTaskRouter(client));
+  app.use('/toggleComplete', taskCompletedRouter(client));
 };

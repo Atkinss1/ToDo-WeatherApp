@@ -1,9 +1,11 @@
 # ToDo App
 
 ## Overview
+
 This is a simple ToDo application with a PostgreSQL database. It features a front-end built with React and a back-end using Express. Follow the instructions below to set up and run the application.
 
 ## Prerequisites
+
 - [Node.js](https://nodejs.org/) (Latest LTS recommended)
 - [PostgreSQL](https://www.postgresql.org/) (Version 12 or higher recommended)
 
@@ -12,6 +14,7 @@ This is a simple ToDo application with a PostgreSQL database. It features a fron
 ## Setup Instructions
 
 ### 1. Clone the Repository
+
 ```bash
 git clone git@github.com:Atkinss1/ToDo-WeatherApp.git
 cd ToDo
@@ -23,6 +26,7 @@ cd ToDo
    ```
 
 ### 2. Create the PostgreSQL Database
+
 1. Open a PostgreSQL client (e.g., `psql`).
 2. Create a new database:
    ```sql
@@ -42,14 +46,15 @@ cd ToDo
    ```
 
 ### 4. Update Database Credentials
+
 1. Navigate to the `backend` folder.
 2. create a `.env` file.
 3. Update the PostgreSQL credentials with your database configuration:
    ```javascript
-   VITE_HOST=localhost
-   VITE_USER='your user'
-   VITE_PASSWORD='your password'
-   VITE_DATABASE=todo
+   VITE_HOST = localhost;
+   VITE_USER = 'your user';
+   VITE_PASSWORD = 'your password';
+   VITE_DATABASE = todo;
    ```
 
 ### 5. WeatherAPI credentials
@@ -63,7 +68,9 @@ you will have to sign up at [www.openweathermap.org/](https://home.openweatherma
 ---
 
 ## Running the Application
+
 1. Install dependencies in the root `ToDo` and `backend` folder:
+
    ```bash
    npm install
    ```
@@ -78,10 +85,10 @@ The application should now be running on your local machine.
 ---
 
 ## Troubleshooting
+
 - Ensure PostgreSQL is running.
 - Check database connection details.
 - Verify correct schema and seed data setup.
 - Verify correct apiKeys are added in your `.env` files.
 
 Happy coding! 🚀
-

@@ -14,13 +14,13 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
-import '../../src/App.css'
+import '../../src/App.css';
 
-import { mount } from 'cypress/react18'
+import { mount } from 'cypress/react18';
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', mount);
 
 // Example use:
 // cy.mount(<MyComponent />)

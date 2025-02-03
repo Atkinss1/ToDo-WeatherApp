@@ -4,15 +4,15 @@ import { v4 as uuidv4 } from 'uuid';
 
 /**
  * listens for POST requests at /addTask and passes the task to addTask
- * 
+ *
  * @param {client} client - database client
  * @returns {router} - returns an express router
  */
 export const addTaskRoute = (client) => {
   const router = express.Router();
-  
+
   router.post('/', async (req, res) => {
-    try{
+    try {
       const { title, description } = req.body;
       const response = await addTask(client, title, description);
       if (!response) {
@@ -20,8 +20,8 @@ export const addTaskRoute = (client) => {
       }
       console.log('taskRoute', response);
       return res.status(201).json(response);
-    } catch(error) {
-      res.status(500).json({ error: `Failed to add task: ${error}`});
+    } catch (error) {
+      res.status(500).json({ error: `Failed to add task: ${error}` });
     }
   });
 
