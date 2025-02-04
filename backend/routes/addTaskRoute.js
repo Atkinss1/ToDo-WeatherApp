@@ -1,6 +1,5 @@
 import express from 'express';
 import { addTask } from '../db/queries/addTask.js';
-import { v4 as uuidv4 } from 'uuid';
 
 /**
  * listens for POST requests at /addTask and passes the task to addTask

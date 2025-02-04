@@ -1,5 +1,6 @@
-import { useContext } from 'react';
-import { WeatherContext } from '../WeatherContextProvider';
+import { createContext, useContext } from 'react';
+
+export const WeatherContext = createContext();
 
 export const useWeatherContext = () => {
   if (!WeatherContext) {

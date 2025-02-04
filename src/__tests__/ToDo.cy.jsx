@@ -13,7 +13,7 @@ describe('<ToDo />', () => {
         deleteTodo: cy.stub().callsFake(() => {
           todo.isDeleted = !todo.isDeleted;
         }),
-        editTodo: cy.stub().callsFake(() => {
+        toggleEditTodo: cy.stub().callsFake(() => {
           todo.isEditing = !todo.isEditing;
         }),
         toggleComplete: cy.stub().callsFake(() => {
@@ -60,11 +60,11 @@ describe('<ToDo />', () => {
 
       // Check if the edit icon is rendered
       cy.get('.edit-icon').should('exist');
-      // Check if the edit icon is clicked and the editTodo function is called
+      // Check if the edit icon is clicked and the toggleEditTodo function is called
       cy.get('.edit-icon')
         .click()
         .then(() => {
-          expect(contextValue.editTodo).to.have.been.called;
+          expect(contextValue.toggleEditTodo).to.have.been.called;
           expect(todo.isEditing).to.be.true;
         });
 

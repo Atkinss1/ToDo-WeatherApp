@@ -218,6 +218,7 @@
   max-height: 50%;
   font-size: var(--space-xs-l);
   flex-wrap: wrap;
+  gap: var(--space-s);
 }
 
 .weather-column {
@@ -227,14 +228,14 @@
   align-items: center;
   width: fit-content;
   height: 100%;
-  gap: 10px;
+  gap: var(--space-s);
 }
 
 .weather-detail {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-s);
+  /* gap: var(--space-s); */
   flex-direction: column;
   flex: 1;
 }

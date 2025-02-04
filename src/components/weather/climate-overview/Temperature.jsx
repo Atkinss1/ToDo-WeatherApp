@@ -1,13 +1,13 @@
-import React from 'react';
+import { useWeatherContext } from '@state/hooks/weatherContext';
 
-export const Temperature = ({ mockWeather }) => {
+export const Temperature = () => {
+  const { weather } = useWeatherContext();
+
   return (
     <div className="temp">
-      <div className="current-temp">
-        {Math.floor(mockWeather.main.temp)}&deg;C
-      </div>
+      <div className="current-temp">{Math.floor(weather.main.temp)}&deg;C</div>
       <div className="feels-like-temp">
-        <p>Feels Like: &nbsp;{mockWeather.main.feels_like}&deg;C</p>
+        <p>Feels Like: &nbsp;{weather.main.feels_like}&deg;C</p>
       </div>
     </div>
   );

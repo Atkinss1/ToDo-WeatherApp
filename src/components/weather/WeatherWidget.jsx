@@ -1,27 +1,25 @@
 import { useWeatherContext } from '@state/hooks/weatherContext';
-import { WeatherIcon } from './WeatherIcon';
 import { WeatherDetails } from './WeatherDetails';
+import { WeatherIcon } from './WeatherIcon';
 import { ClimateOverview } from './climate-overview/ClimateOverview';
 
-export const WeatherWidget = ({ mockWeather }) => {
+export const WeatherWidget = () => {
   const { weather } = useWeatherContext();
-
-  console.log('weather', weather);
 
   return (
     <div className="widget-container">
-      {mockWeather ? (
+      {weather ? (
         <div className="widget-wrapper">
-          <div className="city-title">{mockWeather.name}</div>
+          <div className="city-title">{weather.name}</div>
           <div className="widget-info">
             <div className="temp-and-sun-container">
-              <ClimateOverview mockWeather={mockWeather} />
+              <ClimateOverview />
             </div>
             <div className="weather-icon-container">
-              <WeatherIcon mockWeather={mockWeather} />
+              <WeatherIcon />
             </div>
             <div className="weather-info-container">
-              <WeatherDetails mockWeather={mockWeather} />
+              <WeatherDetails />
             </div>
           </div>
         </div>

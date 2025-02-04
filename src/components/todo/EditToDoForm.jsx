@@ -1,7 +1,7 @@
+import { useTodosContext } from '@state/hooks/todosContext';
 import '@styles/todo.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useTodosContext } from '@state/hooks/todosContext';
 
 /**
  * EditToDoForm
@@ -10,10 +10,10 @@ import { useTodosContext } from '@state/hooks/todosContext';
  */
 
 export const EditToDoForm = ({ task }) => {
-  const { editTask, editTodo } = useTodosContext();
+  const { editTask, toggleEditTodo } = useTodosContext();
 
-  const [initialTitle, setInitialTite] = useState(task.title);
-  const [initialDesc, setInitialDesc] = useState(task.description);
+  const initialTitle = task.title;
+  const initialDesc = task.description;
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
 
@@ -21,7 +21,6 @@ export const EditToDoForm = ({ task }) => {
     e.preventDefault();
     if (!title) return;
     if (initialTitle === title && initialDesc === description) {
-      editTodo(task.id);
       return;
     }
 
@@ -49,7 +48,7 @@ export const EditToDoForm = ({ task }) => {
       <button
         type="button"
         className="todo-btn"
-        onClick={() => editTodo(task.id)}
+        onClick={() => toggleEditTodo(task.id)}
       >
         Cancel
       </button>

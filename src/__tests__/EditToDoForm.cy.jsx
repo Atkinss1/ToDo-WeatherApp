@@ -12,14 +12,14 @@ describe('<EditToDoForm />', () => {
     });
 
     const editTodoStub = cy.stub().callsFake(() => {
-      console.log('editTodo is called');
+      console.log('toggleEditTodo is called');
     });
 
     // Load fixture data
     cy.fixture('tasks.json').then((tasks) => {
       const contextValue = {
         editTask: editTaskStub,
-        editTodo: editTodoStub,
+        toggleEditTodo: editTodoStub,
       };
 
       // Parse the fixture data

@@ -1,4 +1,3 @@
-import '@styles/todo.css';
 import {
   faCircleCheck,
   faCircleXmark,
@@ -6,9 +5,10 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTodosContext } from '@state/hooks/todosContext';
+import '@styles/todo.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useTodosContext } from '@state/hooks/todosContext';
 
 /**
  * ToDo component
@@ -16,7 +16,7 @@ import { useTodosContext } from '@state/hooks/todosContext';
  * @returns {JSX.Element} - returns a div containing the task and edit and delete icons
  */
 export const ToDo = ({ task }) => {
-  const { deleteTodo, editTodo, toggleComplete } = useTodosContext();
+  const { deleteTodo, toggleEditTodo, toggleComplete } = useTodosContext();
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = (taskId) => {
@@ -70,7 +70,7 @@ export const ToDo = ({ task }) => {
             <FontAwesomeIcon
               icon={faPenToSquare}
               className={'edit-icon'}
-              onClick={() => editTodo(task.id)}
+              onClick={() => toggleEditTodo(task.id)}
             />
             <FontAwesomeIcon
               icon={faTrash}

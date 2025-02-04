@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState, createContext } from 'react';
+import { useEffect, useState } from 'react';
 import todosService from '../service/todosService';
-
-export const TodosContext = createContext();
+import { TodosContext } from './hooks/todosContext';
 
 /**
  * ToDosContextProvider
@@ -71,13 +70,12 @@ export const TodosContextProvider = ({ children }) => {
     }
   };
 
-  // TODO: duplicate function; remove
   /**
    * Alters the state of isEditing property of the todo item with the given id
    * @param {number} id - id of the todo item to be edited
    * @returns {void} - returns nothing
    */
-  const editTodo = (id) => {
+  const toggleEditTodo = (id) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
@@ -136,7 +134,14 @@ export const TodosContextProvider = ({ children }) => {
 
   return (
     <TodosContext.Provider
-      value={{ addTodo, deleteTodo, editTodo, editTask, toggleComplete, todos }}
+      value={{
+        addTodo,
+        deleteTodo,
+        toggleEditTodo,
+        editTask,
+        toggleComplete,
+        todos,
+      }}
     >
       {children}
     </TodosContext.Provider>
