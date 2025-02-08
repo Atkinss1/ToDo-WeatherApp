@@ -4,7 +4,7 @@ import { WeatherIcon } from './WeatherIcon';
 import { ClimateOverview } from './climate-overview/ClimateOverview';
 
 export const WeatherWidget = () => {
-  const { weather } = useWeatherContext();
+  const { weather, error } = useWeatherContext();
 
   return (
     <div className="widget-container">
@@ -22,6 +22,10 @@ export const WeatherWidget = () => {
               <WeatherDetails />
             </div>
           </div>
+        </div>
+      ) : error ? (
+        <div className="error">
+          <p>{error}</p>
         </div>
       ) : (
         <div className="no-weather-info">
